@@ -1,0 +1,5 @@
+- hosts: localhost
+  tasks:
+    - include_tasks: tasks/node-setup.yml
+    - include_tasks: tasks/npm-packages.yml
+    

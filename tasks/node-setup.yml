@@ -1,0 +1,11 @@
+- name: Install nvm
+  shell: >
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+
+- name: Install node 18
+  shell: source ~/.nvm/nvm.sh && nvm install 18
+
+- name: Add npm global in path
+  shell: export PATH=$HOME/.nvm/versions/node/v18.15.0:$PATH
