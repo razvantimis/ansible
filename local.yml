@@ -1,5 +1,24 @@
-- hosts: localhost
+- hosts: localhost 
+  gather_facts: no  
   tasks:
     - include_tasks: tasks/node-setup.yml
+      tags: 
+        - node
     - include_tasks: tasks/npm-packages.yml
+      tags: 
+        - npm 
+    - include_tasks: 
+        file: tasks/zsh-setup.yml
+        apply:
+          tags: 
+            - zsh 
+      tags: 
+        - zsh 
+    - include_tasks: 
+        file: tasks/nvim-setup.yml
+        apply:
+          tags: 
+            - nvim 
+      tags: 
+        - nvim
     
