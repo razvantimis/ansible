@@ -10,9 +10,15 @@
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
     dest: "{{ lookup('env', 'HOME') }}/neovim"
+
 - name: Install cmake
   homebrew: 
     name: cmake
+    state: present
+
+- name: Install gettext
+  homebrew: 
+    name: gettext
     state: present
 
 - name: Build neovim
