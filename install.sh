@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# Install homebrew
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+# Check for Homebrew and install it 
+if test ! $(which brew); then
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 # Install pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
