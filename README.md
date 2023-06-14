@@ -11,4 +11,5 @@
 
 - NodeJs : nvm for managing node version 
 - Zsh + plugins
+- Tmux + plugins
 

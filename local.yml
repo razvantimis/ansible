@@ -20,5 +20,12 @@
           tags: 
             - nvim 
       tags: 
-        - nvim
+        - nvim 
+    - include_tasks: 
+        file: tasks/tmux-setup.yml
+        apply:
+          tags: 
+            - tmux 
+      tags: 
+        - tmux
     
