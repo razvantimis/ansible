@@ -1,0 +1,14 @@
+- name: Install stow
+  homebrew:
+    name: stow
+    state: present
+- name: Cloning .dotfiles repo
+  git:
+    repo: 'git@github.com:razvantimis/.dotfiles.git'
+    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: main
+- name: Stow dotfiles
+  shell: cd $HOME/.dotfiles && ./stow-files.sh

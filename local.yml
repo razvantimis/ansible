@@ -28,4 +28,11 @@
             - tmux 
       tags: 
         - tmux
-    
+    - include_tasks: 
+        file: tasks/dotfiles.yml
+        apply:
+          tags: 
+            - dotfiles 
+      tags: 
+        - dotfiles
+      
