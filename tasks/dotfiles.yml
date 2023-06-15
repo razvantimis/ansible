@@ -11,4 +11,4 @@
     accept_hostkey: yes
     version: main
 - name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && ./stow-files.sh
+  shell: cd $HOME/.dotfiles && ./setup.sh
