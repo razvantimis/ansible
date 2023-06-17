@@ -6,4 +6,4 @@
     repo: 'https://github.com/tmux-plugins/tpm.git'
     dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
   become: true
-  become_user: rtimis 
+  become_user: "{{ user_name }}"

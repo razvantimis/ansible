@@ -1,0 +1,8 @@
+
+packages:
+    - yarn
+    - pnpm
+    - eslint
+    - typescript
+    - ts-node
+    - prettier

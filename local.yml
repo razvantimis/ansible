@@ -1,12 +1,17 @@
 - hosts: localhost 
   gather_facts: no  
+  vars_files:
+    - ./vars/osx-config.yml
+    - ./vars/personal.yml
+    - ./vars/apps.yml
   tasks:
-    - include_tasks: tasks/node-setup.yml
+    - include_tasks: 
+        file: tasks/node-setup.yml
+        apply:
+          tags: 
+            - node
       tags: 
         - node
-    - include_tasks: tasks/npm-packages.yml
-      tags: 
-        - npm 
     - include_tasks: 
         file: tasks/zsh-setup.yml
         apply:
@@ -35,4 +40,11 @@
             - dotfiles 
       tags: 
         - dotfiles
+    - include_tasks: 
+        file: tasks/macos.yml
+        apply:
+          tags: 
+            - macos 
+      tags: 
+        - macos
       

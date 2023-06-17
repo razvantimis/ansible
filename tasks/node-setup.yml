@@ -9,3 +9,9 @@
 
 - name: Add npm global in path
   shell: export PATH=$HOME/.nvm/versions/node/v18.15.0:$PATH
+
+- name: Install npm packages
+  community.general.npm:
+    name: "{{ item }}"
+    global: yes
+  loop: "{{ packages }}" 
