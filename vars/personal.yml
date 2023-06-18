@@ -1,3 +1,6 @@
+## NEED TO BE CHANGED
 user_name: rtimis 
+
+## OPTIONAL
 github_username: razvantimis
 dotfiles_dir: "{{ lookup('env', 'HOME') }}/.dotfiles"
