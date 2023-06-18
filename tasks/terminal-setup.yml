@@ -1,0 +1,52 @@
+- name: Install Iterm2
+  homebrew_cask:
+    name: iterm2
+    state: present
+- name: Install tmux
+  homebrew:
+    name: tmux
+    state: present
+- name: Clone TPM repository
+  git:
+    repo: 'https://github.com/tmux-plugins/tpm.git'
+    dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
+  become: true
+  become_user: "{{ user_name }}"
+
+- name: Install zsh
+  homebrew:
+    name: zsh
+    state: present
+
+- name: Add zsh in shell file
+  shell: sudo echo "$(which zsh)" >> /etc/shells
+  ignore_errors: true
+
+- name: Change shell to zsh
+  become: true
+  shell: chsh -s $(which zsh)
+
+- name: Check that the somefile.conf exists
+  stat:
+    path: ~/.oh-my-zsh
+  register: oh_my_stats
+
+- name: Oh-My-Zsh
+  shell: curl -L https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+  when: oh_my_stats.stat.exists == False
+  become: true 
+
+- name: Install zsh-autosuggestions
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+
+- name: Install zsh-syntax-highlighting
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+    dest: "~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
+
+- name: Install zsh powerlevel10k
+  ansible.builtin.git:
+    repo: 'https://github.com/romkatv/powerlevel10k.git'
+    dest: "~/.oh-my-zsh/custom/themes/powerlevel10k"

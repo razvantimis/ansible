@@ -13,12 +13,12 @@
       tags: 
         - node
     - include_tasks: 
-        file: tasks/zsh-setup.yml
+        file: tasks/terminal-setup.yml
         apply:
           tags: 
-            - zsh 
+            - terminal 
       tags: 
-        - zsh 
+        - terminal 
     - include_tasks: 
         file: tasks/nvim-setup.yml
         apply:
@@ -26,13 +26,6 @@
             - nvim 
       tags: 
         - nvim 
-    - include_tasks: 
-        file: tasks/tmux-setup.yml
-        apply:
-          tags: 
-            - tmux 
-      tags: 
-        - tmux
     - include_tasks: 
         file: tasks/dotfiles.yml
         apply:
