@@ -2,6 +2,7 @@
   ansible.builtin.shell: pmset displaysleep 15 && pmset sleep 30
   changed_when: false
   become: true
+
 - name: Set macOS default settings
   community.general.osx_defaults:
     domain: "{{ item['domain'] }}"
@@ -9,4 +10,9 @@
     type: "{{ item['type'] | default(omit) }}"
     value: "{{ item['value'] }}"
   loop: "{{ osxConfig }}"
-  tags: system_settings
+
+- name: Set OSX settings for keyboard shortcuts
+  shell: >
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add {{ item.key }} "{{ item.value }}"
+  with_dict: {{ keyboardSettings }}
+ 

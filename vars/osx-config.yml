@@ -1,51 +1,127 @@
 ---
-
 osxConfig:
-  - domain: com.apple.TimeMachine
-    key: DoNotOfferNewDisksForBackup
-    name: Disable prompting to use new external drives as Time Machine volume
+  - domain: -globalDomain
+    key: AppleInterfaceStyleSwitchesAutomatically
+    name: System Preferences > General > Appearance
     type: bool
-    value: 'true'
-  - domain: com.apple.desktopservices
-    key: DSDontWriteNetworkStores
-    name: Disable creation of .DS_Store files on network volumes
+    value: false
+  - domain: -globalDomain
+    key: AppleInterfaceStyle
+    name: System Preferences > General > Appearance
+    type: string
+    value: Dark
+  - domain: -globalDomain
+    key: AppleScrollerPagingBehavior
+    name: "System Preferences > General > Click in the scrollbar to: Jump to the spot that's clicked"
     type: bool
-    value: 'true'
+    value: true
+  - domain: -globalDomain
+    key: NSTableViewDefaultSizeMode
+    name: "System Preferences > General > Sidebar icon size: Medium"
+    type: int
+    value: 2
+  ############################################################################
+  - domain: com.apple.dock
+    key: tilesize
+    name: "System Preferences > Dock > Size: 54"
+    type: float
+    value: 50
+  - domain: com.apple.dock
+    key: magnification
+    name: "System Preferences > Dock > Magnification: On"
+    type: bool
+    value: true
+  - domain: com.apple.dock
+    key: largesize
+    name: "System Preferences > Dock > Size (magnified): 64"
+    type: float
+    value: 60
+  - domain: com.apple.dock
+    key: expose-group-apps
+    name: Enable grouping windows by application
+    type: bool
+    value: true
+  - domain: com.apple.dock
+    key: mineffect
+    name: "System Preferences > Dock > Minimize windows using: Scale effect"
+    type: string
+    value: genie
+  - domain: com.apple.dock
+    key: minimize-to-application
+    name: "System Preferences > Dock > Minimize windows into application icon: On"
+    type: bool
+    value: true
+  - domain: com.apple.dock
+    key: autohide
+    name: "System Preferences > Dock > Automatically hide and show the Dock: On"
+    type: bool
+    value: true
+  - domain: com.apple.dock
+    key: show-process-indicators
+    name: "System Preferences > Dock > Show indicators for open applications: On"
+    type: bool
+    value: true
+  - domain: com.apple.dock
+    key: mru-spaces
+    name: "System Preferences > Mission Control > Automatically rearrange Spaces based on most recent use: Off"
+    type: bool
+    value: false
+  ############################################################################
+  - domain: com.apple.finder
+    key: AppleShowAllExtensions
+    name: "Finder > Preferences > Show all filename extensions: On"
+    type: bool
+    value: true
+  - domain: com.apple.finder
+    key: FXPreferredViewStyle
+    name: Finder > View > As List
+    type: string
+    value: Nlsv
+  - domain: com.apple.finder
+    key: ShowPathbar
+    name: "Finder > View > Show Path Bar: On"
+    type: bool
+    value: true
+  - domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    name: "Finder > View > Arrange By > Keep folder on top"
+    type: bool
+    value: true
   - domain: com.apple.finder
     key: ShowExternalHardDrivesOnDesktop
     name: Hide external hard drives on desktop
     type: bool
-    value: 'false'
+    value: false
   - domain: com.apple.finder
     key: ShowHardDrivesOnDesktop
     name: Hide hard drives on desktop
     type: bool
-    value: 'false'
+    value: false
   - domain: com.apple.finder
     key: ShowRemovableMediaOnDesktop
     name: Hide removable media on desktop
     type: bool
-    value: 'false'
+    value: false
   - domain: com.apple.finder
     key: ShowMountedServersOnDesktop
     name: Hide mounted servers on desktop
     type: bool
-    value: 'false'
+    value: false
   - domain: com.apple.finder
     key: CreateDesktop
     name: Hide icons on desktop
     type: bool
-    value: 'false'
+    value: false
   - domain: com.apple.finder
     key: ShowStatusBar
     name: Enable status bar in Finder
     type: bool
-    value: 'true'
+    value: true
   - domain: com.apple.finder
     key: FXEnableExtensionChangeWarning
-    name: Disable file extension change warning
+    name: "Finder > Preferences > Show wraning before changing an extension: Off"
     type: bool
-    value: 'false'
+    value: false
   - domain: com.apple.finder
     key: FXDefaultSearchScope
     name: Set search scope to current folder
@@ -57,35 +133,53 @@ osxConfig:
     type: string
     value: PfHm
   - domain: com.apple.finder
+    key: FXRemoveOldTrashItems
+    name: Empty Trash automatically after 30 days
+    type: bool
+    value: true
+
+  - domain: com.apple.finder
     key: NewWindowTargetPath
     name: Set default Finder location to ~/
     type: string
     value: file:///{{ lookup('env', 'HOME') }}/
-  - domain: com.apple.finder
-    key: autohide
-    name: Auto-hide the Dock
+  ############################################################################
+  - domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    key: Clicking
+    name: "System Preferences > Trackpad > Tap to click: On"
     type: bool
-    value: 'true'
+    value: true
+  - domain: com.apple.TimeMachine
+    key: DoNotOfferNewDisksForBackup
+    name: Disable prompting to use new external drives as Time Machine volume
+    type: bool
+    value: true
+  - domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    name: Disable creation of .DS_Store files on network volumes
+    type: bool
+    value: true
+
   - domain: com.apple.safari
     key: FXDefaultSearchScope
     name: Enable Safari developer menu
     type: bool
-    value: 'true'
+    value: true
   - domain: com.apple.safari
     key: WebKitDeveloperExtrasEnabledPreferenceKey
     name: Enable Safari developer menu
     type: bool
-    value: 'true'
+    value: true
   - domain: com.apple.safari
     key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
     name: Enable Safari developer menu
     type: bool
-    value: 'true'
+    value: true
   - domain: NSGlobalDomain
     key: WebKitDeveloperExtras
     name: Add context menu item to show web inspector
     type: bool
-    value: 'true'
+    value: true
   - domain: com.apple.screencapture
     key: location
     name: Save screenshots to ~/Pictures
@@ -95,45 +189,58 @@ osxConfig:
     type: string
     name: Set screencapture file type to PNG
     value: png
-  - domain: com.apple.dock
-    key: expose-group-apps
-    name: Enable grouping windows by application
-    type: bool
-    value: 'true'
+
   - domain: com.apple.SoftwareUpdate
     key: ScheduleFrequency
     name: Check for software updates weekly
     type: int
-    value: '7'
+    value: "7"
   - domain: com.apple.AppleMultitouchMouse
     key: MouseButtonMode
     name: Enable secondary click in external mouse
     type: string
     value: TwoButton
 
-fileExtensions:
-  - ".c"
-  - ".cpp"
-  - ".js"
-  - ".jsx"
-  - ".ts"
-  - ".tsx"
-  - ".json"
-  - ".md"
-  - ".sql"
-  - ".html"
-  - ".css"
-  - ".scss"
-  - ".sass"
-  - ".py"
-  - ".sum"
-  - ".rs"
-  - ".go"
-  - ".sh"
-  - ".log"
-  - ".toml"
-  - ".yml"
-  - ".yaml"
-  - "public.plain-text"
-  - "public.unix-executable"
-  - "public.data"
+# Doccumentation about keyboard shortcuts:
+# https://krypted.com/mac-os-x/defaults-symbolichotkeys/
+# 131072: Shift
+# 262144: Control
+# 524288: Option
+# 1048576: Command
+# Add modifier values together in the 3rd parameter to combine them.
+keyboardSettings:
+  #  Move focus to the Dock - Option+D
+  - 8: "{ enabled = 1; value = { parameters = (100, 2, 524288); type = 'standard'; }; }"
+  # Turn zoom on or off - Command, Option, 8
+  - 15: "{ enabled = 0; }"
+  # ??
+  - 16: "{ enabled = 0; }"
+  - 17: "{ enabled = 0; }"
+  - 18: "{ enabled = 0; }"
+  - 19: "{ enabled = 0; }"
+  - 20: "{ enabled = 0; }"
+  - 21: "{ enabled = 0; }"
+  - 22: "{ enabled = 0; }"
+  - 23: "{ enabled = 0; }"
+  - 24: "{ enabled = 0; }"
+  - 25: "{ enabled = 0; }"
+  - 26: "{ enabled = 0; }"
+  - 36: "{ enabled = 1; value = { parameters = (65535, 103, 8388608); type = 'standard'; }; }"
+  - 37: "{ enabled = 1; value = { parameters = (65535, 103, 8519680); type = 'standard'; }; }"
+  # Select the previous input source - Control, Space
+  - 60: "{ enabled = 0; value = { parameters = (32, 49, 262144); type = 'standard'; }; }"
+  # Select the next input source - Control, Option, Space
+  - 61: "{ enabled = 0; value = { parameters = (32, 49, 786432); type = 'standard'; }; }"
+  - 64: "{ enabled = 1; value = { parameters = (65535, 49, 1048576); type = 'standard'; }; }"
+  - 65: "{ enabled = 1; value = { parameters = (65535, 49, 1572864); type = 'standard'; }; }"
+  # Spaces Left - Control, Left
+  - 79: "{ enabled = 1; value = { parameters = (65535, 123, 8650752); type = 'standard'; }; }"
+  - 80: "{ enabled = 1; value = { parameters = (65535, 123, 8781824); type = 'standard'; }; }"
+  # Spaces Right - Control, Right
+  - 81: "{ enabled = 1; value = { parameters = (65535, 124, 8650752); type = 'standard'; }; }"
+  - 82: "{ enabled = 1; value = { parameters = (65535, 124, 8781824); type = 'standard'; }; }"
+  # Switch to Space 1 - Control, 1
+  - 118: "{ enabled = 1; value = { parameters = (65535, 18, 262144); type = 'standard'; }; }"
+  - 160: "{ enabled = 0; value = { parameters = (65535, 65535, 0); type = 'standard'; }; }"
+
+  - 164: "{ enabled = 1; value = { parameters = (262144, 4294705151); type = 'modifier'; }; }"
