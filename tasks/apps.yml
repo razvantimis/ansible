@@ -1,0 +1,25 @@
+- name: Install homebrew cask packages
+  become_user: "{{ user_name }}"
+  homebrew_cask:
+    name: "{{ item }}"
+  loop: "{{ brew_cask_packages }}"
+  when: brew_cask_packages is defined
+  ignore_errors: true
+
+- name: Install homebrew packages
+  become_user: "{{ user_name }}"
+  homebrew:
+    name: "{{ item }}"
+  loop: "{{ brew_packages }}"
+  when: brew_packages is defined
+  ignore_errors: true
+
+- name: Install VSCode extensions
+  shell: code --install-extension {{ item }}
+  with_items:
+   - dbaeumer.vscode-eslint
+   - GitHub.copilot
+   - eamodio.gitlens
+   - yzhang.markdown-all-in-one
+   - zhuangtongfa.material-theme
+   - bierner.markdown-mermaid

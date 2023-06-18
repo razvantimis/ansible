@@ -1,0 +1,25 @@
+
+packages:
+  - yarn
+  - pnpm
+  - eslint
+  - typescript
+  - ts-node
+  - prettier
+
+brew_cask_packages:
+  - google-chrome
+  - microsoft-edge
+  - firefox
+  - google-drive
+  - slack
+  - skype
+  - zoom
+  - spotify
+  - visual-studio-code
+brew_packages: 
+  - go
+  - git
+  - tree
+  - terraform
+  - pyenv

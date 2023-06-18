@@ -4,7 +4,7 @@
     state: present
 - name: Cloning .dotfiles repo
   git:
-    repo: 'git@github.com:razvantimis/.dotfiles.git'
+    repo: "git@github.com:{{ github_username }}/.dotfiles.git"
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
     recursive: yes
     update: yes

@@ -1,9 +1,9 @@
 - hosts: localhost 
   gather_facts: no  
   vars_files:
-    - ./vars/osx-config.yml
     - ./vars/personal.yml
-    - ./vars/apps.yml
+    - ./vars/osx-config.yml
+    - ./vars/apps-config.yml
   tasks:
     - include_tasks: 
         file: tasks/node-setup.yml
@@ -47,4 +47,11 @@
             - macos 
       tags: 
         - macos
+    - include_tasks: 
+        file: tasks/apps.yml
+        apply:
+          tags: 
+            - apps 
+      tags: 
+        - apps
 
