@@ -15,11 +15,16 @@ brew_cask_packages:
   - slack
   - skype
   - zoom
+  - discord
   - spotify
   - visual-studio-code
+  - docker
+  - vlc
+  
 brew_packages: 
   - go
   - git
   - tree
   - terraform
   - pyenv
+  - rbenv

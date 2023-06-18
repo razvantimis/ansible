@@ -2,10 +2,26 @@
   homebrew_cask:
     name: iterm2
     state: present
+    
+- name: iTerm custom settings file
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: PrefsCustomFolder 
+    type: string
+    value: "{{ dotfiles_dir}}/iterm2"
+
+- name: iTerm Load settings from a custom folder or URL
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: LoadPrefsFromCustomFolder
+    type: bool
+    value: true
+
 - name: Install tmux
   homebrew:
     name: tmux
     state: present
+  
 - name: Clone TPM repository
   git:
     repo: 'https://github.com/tmux-plugins/tpm.git'
