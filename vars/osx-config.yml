@@ -147,8 +147,8 @@ osxConfig:
   - domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
     key: Clicking
     name: "System Preferences > Trackpad > Tap to click: On"
-    type: bool
-    value: true
+    type: int
+    value: 1
   - domain: com.apple.TimeMachine
     key: DoNotOfferNewDisksForBackup
     name: Disable prompting to use new external drives as Time Machine volume
@@ -208,6 +208,7 @@ osxConfig:
 # 524288: Option
 # 1048576: Command
 # Add modifier values together in the 3rd parameter to combine them.
+# Why are not working?....
 keyboardSettings:
   #  Move focus to the Dock - Option+D
   - 8: "{ enabled = 1; value = { parameters = (100, 2, 524288); type = 'standard'; }; }"

@@ -11,7 +11,7 @@
     value: "{{ item['value'] }}"
   loop: "{{ osxConfig }}"
 
-- name: Set OSX settings for keyboard shortcuts
-  shell: >
-    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add {{ item.key }} "{{ item.value }}"
-  with_dict: "{{ keyboardSettings }}"
+# - name: Set OSX settings for keyboard shortcuts
+#   shell: >
+#     defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add {{ item.key }} "{{ item.value }}"
+#   with_dict: "{{ keyboardSettings }}"
