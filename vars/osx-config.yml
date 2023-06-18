@@ -203,10 +203,24 @@ osxConfig:
 
 # Doccumentation about keyboard shortcuts:
 # https://krypted.com/mac-os-x/defaults-symbolichotkeys/
-# 131072: Shift
-# 262144: Control
-# 524288: Option
-# 1048576: Command
+# https://stackoverflow.com/questions/21878482/what-do-the-parameter-values-in-applesymbolichotkeys-plist-dict-represent
+# param_3:
+#  0=>"No modifier",
+#   131072=>"Shift",
+#   262144=>"Control",
+#   524288=>"Option",
+#   1048576=>"Command",
+#   393216=>"Shift + Control",
+#   655360=>"Shift + Option",
+#   1179648=>"Shift + Command",
+#   786432=>"Control + Option",
+#   1310720=>"Control + Command",
+#   1572864=>"Option + Command",
+#   917504=>"Shift + Control + Option",
+#   1441792=>"Shift + Control + Command",
+#   1703936=>"Shift + Option + Command",
+#   1835008=>"Control + Option + Command",
+#   1966080=>"Shift + Control + Option + Command",
 # Add modifier values together in the 3rd parameter to combine them.
 # Why are not working?....
 keyboardSettings:
