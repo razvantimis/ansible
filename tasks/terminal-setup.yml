@@ -16,7 +16,6 @@
     key: LoadPrefsFromCustomFolder
     type: bool
     value: true
-
 - name: Install tmux
   homebrew:
     name: tmux
@@ -62,7 +61,18 @@
     repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
     dest: "~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
-- name: Install zsh powerlevel10k
+- name: Install zsh powerlevel10k theme
   ansible.builtin.git:
     repo: 'https://github.com/romkatv/powerlevel10k.git'
     dest: "~/.oh-my-zsh/custom/themes/powerlevel10k"
+
+- name: Download fonts for powerlevel10k theme
+  get_url:
+    url: "https://github.com/romkatv/powerlevel10k-media/blob/master/{{ item | urlencode() }}.ttf?raw=true"
+    dest: "{{ lookup('env', 'HOME') }}/Library/Fonts/{{ item }}.ttf"
+  loop:
+    - "MesloLGS NF Bold Italic"
+    - "MesloLGS NF Bold"
+    - "MesloLGS NF Italic"
+    - "MesloLGS NF Regular"
+  become: true
