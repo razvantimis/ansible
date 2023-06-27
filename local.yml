@@ -1,4 +1,5 @@
-- hosts: localhost 
+- name: Bootstrap OSX dev machine
+  hosts: localhost 
   gather_facts: no  
   vars_files:
     - ./vars/personal.yml
@@ -47,4 +48,11 @@
             - apps 
       tags: 
         - apps
+    - include_tasks: 
+        file: tasks/yabai.yml
+        apply:
+          tags: 
+            - yabai 
+      tags: 
+        - yabai
 
