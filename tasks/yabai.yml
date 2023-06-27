@@ -7,10 +7,18 @@
   register: yabai_installed
   until: yabai_installed is succeeded
 
+- name: "Set yabai path "
+  shell: which yabai
+  register: yabai_path
+- name: "Generate sha256 hash"
+  shell: shasum -a 256 {{yabai_path.stdout}}
+  register: yabai_hash # sha256 hash + path to yabai
+    
+ 
 - name: "Configure scripting addition"
   ansible.builtin.lineinfile:
     path: /private/etc/sudoers.d/yabai
-    line: " ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa"
+    line: "{{user_name}} ALL=(root) NOPASSWD: sha256:{{yabai_hash.stdout}} --load-sa"
     # validate: "/usr/sbin/visudo -cf %s"
     create: true
   become: true

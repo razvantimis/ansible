@@ -66,6 +66,11 @@ osxConfig:
     name: "System Preferences > Mission Control > Automatically rearrange Spaces based on most recent use: Off"
     type: bool
     value: false
+  - domain: com.apple.dock
+    key: workspaces-auto-swoosh
+    name: "System Preferences > Mission Control > When switching to an application, switch to a Space with open windows for the application: Off"
+    type: bool
+    value: true
   ############################################################################
   - domain: com.apple.finder
     key: AppleShowAllExtensions
@@ -135,6 +140,11 @@ osxConfig:
   - domain: com.apple.finder
     key: FXRemoveOldTrashItems
     name: Empty Trash automatically after 30 days
+    type: bool
+    value: true
+  - domain: com.apple.finder
+    key: DisableAllAnimations
+    name: When opening a folder on the desktop there's an animation that conflicts with yabai trying to tile the window
     type: bool
     value: true
 
