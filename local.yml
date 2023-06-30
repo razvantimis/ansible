@@ -6,17 +6,20 @@
     - ./vars/osx-config.yml
     - ./vars/apps-config.yml
   tasks:
-    - name: "Prepare for bootstrap"
-      ansible.builtin.set_fact:
-        user_name: "{{ lookup('env', 'USER') }}"
-      tags:
-        - always 
-    - name: "Show config"
-      debug:
-        var: user_name
-      tags:
-        - always
-      
+    - include_tasks: 
+        file: tasks/ssh.yml
+        apply:
+          tags: 
+            - ssh
+      tags: 
+        - ssh
+    - include_tasks: 
+        file: tasks/git-setup.yml
+        apply:
+          tags: 
+            - git
+      tags: 
+        - git
     - include_tasks: 
         file: tasks/node-setup.yml
         apply:

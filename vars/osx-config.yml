@@ -210,6 +210,10 @@ osxConfig:
     name: Enable secondary click in external mouse
     type: string
     value: TwoButton
+  - domain: ~/Library/Preferences/ByHost/com.apple.controlcenter.plist
+    key: Bluetooth
+    type: int
+    value: 18  
 
 # Doccumentation about keyboard shortcuts:
 # https://krypted.com/mac-os-x/defaults-symbolichotkeys/

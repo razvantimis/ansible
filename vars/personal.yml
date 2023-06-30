@@ -1,3 +1,7 @@
-## OPTIONAL
+user_name: "{{ lookup('env', 'USER') }}"
 github_username: razvantimis
 dotfiles_dir: "{{ lookup('env', 'HOME') }}/.dotfiles"
+
+# SSH
+source_key:  "./.ssh/id_ed25519"
+dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"

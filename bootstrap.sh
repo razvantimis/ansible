@@ -5,8 +5,9 @@
 # sudo xcodebuild -license
 
 # Check for Homebrew and install it 
-if test ! $(which brew); then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if ! which brew >/dev/null; then
+  echo "Installing homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Install pip
@@ -16,11 +17,12 @@ if test ! $(which brew); then
   rm get-pip.py
 fi
 # Install ansible
-if test ! $(which brew); then
-python3 -m pip install --user ansible
+if ! which ansible >/dev/null; then
+  echo "Installing ansible..."
+  python3 -m pip install --user ansible
 fi
 # Run ansible playbook
-ansible-playbook local.yml --ask-become-pass
+ansible-playbook local.yml --ask-become-pass --ask-vault-pass
 
 
 
