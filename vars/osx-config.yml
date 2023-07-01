@@ -20,6 +20,11 @@ osxConfig:
     name: "System Preferences > General > Sidebar icon size: Medium"
     type: int
     value: 2
+  - domain: -globalDomain
+    key: _HIHideMenuBar
+    name: "System Preferences > Desktop & Dock > Automatically hide and show the menu bar: always"
+    type: int
+    value: 1
   ############################################################################
   - domain: com.apple.dock
     key: tilesize
