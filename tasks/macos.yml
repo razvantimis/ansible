@@ -13,9 +13,10 @@
   ignore_errors: true
   when: osxConfig is defined
 
-- name: Set OSX settings for keyboard shortcuts
-  shell: >
-    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add {{ item.key }} "{{ item.value }}"
-  with_dict: "{{ keyboardSettings }}"
-  ignore_errors: true
-  when: keyboardSettings is defined
+## Keyboard shortcuts - not working
+# - name: Set OSX settings for keyboard shortcuts
+#   shell: >
+#     defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add {{ item.key }} "{{ item.value }}"
+#   with_dict: "{{ keyboardSettings }}"
+#   ignore_errors: true
+#   when: keyboardSettings is defined

@@ -68,7 +68,7 @@ osxConfig:
     value: false
   - domain: com.apple.dock
     key: workspaces-auto-swoosh
-    name: "System Preferences > Mission Control > When switching to an application, switch to a Space with open windows for the application: Off"
+    name: "System Preferences > Mission Control > When switching to an application, switch to a Space with open windows for the application: On"
     type: bool
     value: true
   ############################################################################
@@ -204,7 +204,7 @@ osxConfig:
     key: ScheduleFrequency
     name: Check for software updates weekly
     type: int
-    value: "7"
+    value: 7
   - domain: com.apple.AppleMultitouchMouse
     key: MouseButtonMode
     name: Enable secondary click in external mouse
@@ -213,7 +213,12 @@ osxConfig:
   - domain: ~/Library/Preferences/ByHost/com.apple.controlcenter.plist
     key: Bluetooth
     type: int
-    value: 18  
+    value: 18 
+  - domain: com.apple.universalaccess
+    key: reduceMotion
+    name: "System Preferences > Accessibility > Display > Reduce motion: Off"
+    type: int
+    value: 1
 
 # Doccumentation about keyboard shortcuts:
 # https://krypted.com/mac-os-x/defaults-symbolichotkeys/
