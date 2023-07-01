@@ -2,6 +2,12 @@
   homebrew:
     name: stow
     state: present
+
+- name: Check if .dotfiles repo exists
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/.dotfiles"
+  register: dotfiles_repo
+
 - name: Cloning .dotfiles repo
   git:
     repo: "git@github.com:{{ github_username }}/.dotfiles.git"
@@ -10,5 +16,11 @@
     update: yes
     accept_hostkey: yes
     version: main
+  when: not dotfiles_repo.stat.exists
+
+- name: Fetching latest .dotfiles
+  shell: cd $HOME/.dotfiles && git pull origin main --force
+  when: dotfiles_repo.stat.exists
+
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./setup.sh
