@@ -6,6 +6,12 @@
 1. Run `chmod +x bootstrap.sh`
 2. Run `./bootstrap.sh`
 
+### Extra manual steps after bootstrap
+
+1. Disabling System Integrity Protection for yabai - https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
+   1. Enter recovery mode by restarting your machine and holding `power button` until the "Loading startup options" appears.
+   2. On m1 run `csrutil enable --without fs --without debug --without nvram` in recovery mode terminal
+
 ## Software
 
 - Terminal: [Alacritty](https://alacritty.org)
