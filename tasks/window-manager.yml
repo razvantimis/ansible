@@ -2,7 +2,7 @@
 # skhd = hotkey daemon for macOS
 - name: "Check if yabai is installed"
   community.general.homebrew:
-    name: yabai
+    name: koekeishiya/formulae/yabai
     state: present
   register: yabai_installed
   until: yabai_installed is succeeded
@@ -29,7 +29,7 @@
 
 - name: "Check if skhd is installed"
   community.general.homebrew:
-    name: skhd
+    name: koekeishiya/formulae/skhd
     state: present
   register: skhd_installed
   until: skhd_installed is succeeded

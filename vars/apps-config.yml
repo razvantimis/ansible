@@ -20,6 +20,8 @@ brew_cask_packages:
   - visual-studio-code
   - docker
   - vlc
+  - postman
+  - notion
   
 brew_packages: 
   - go
@@ -29,5 +31,3 @@ brew_packages:
   - pyenv
   - rbenv
   - jq
-  - koekeishiya/formulae/yabai
-  - koekeishiya/formulae/skhd

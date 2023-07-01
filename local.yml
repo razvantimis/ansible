@@ -63,10 +63,10 @@
       tags: 
         - apps
     - include_tasks: 
-        file: tasks/yabai.yml
+        file: tasks/window-manager.yml
         apply:
           tags: 
-            - yabai 
+            - window-manager 
       tags: 
-        - yabai
+        - window-manager
 

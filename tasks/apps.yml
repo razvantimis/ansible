@@ -10,6 +10,7 @@
   become_user: "{{ user_name }}"
   homebrew:
     name: "{{ item }}"
+    state: present
   loop: "{{ brew_packages }}"
   when: brew_packages is defined
   ignore_errors: true
