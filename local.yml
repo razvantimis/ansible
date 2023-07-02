@@ -42,13 +42,6 @@
       tags: 
         - nvim 
     - include_tasks: 
-        file: tasks/dotfiles.yml
-        apply:
-          tags: 
-            - dotfiles 
-      tags: 
-        - dotfiles
-    - include_tasks: 
         file: tasks/macos.yml
         apply:
           tags: 
@@ -69,4 +62,11 @@
             - window-manager 
       tags: 
         - window-manager
+    - include_tasks: 
+        file: tasks/dotfiles.yml
+        apply:
+          tags: 
+            - dotfiles 
+      tags: 
+        - dotfiles
 
