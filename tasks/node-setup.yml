@@ -5,10 +5,10 @@
     creates: "{{ lookup('env', 'HOME') }}/.nvm/nvm.sh"
 
 - name: Install node 18
-  shell: source ~/.nvm/nvm.sh && nvm install 18
+  shell: source ~/.nvm/nvm.sh && nvm install 18.16.1
 
 - name: Add npm global in path
-  shell: export PATH=$HOME/.nvm/versions/node/v18.15.0:$PATH
+  shell: export PATH=$HOME/.nvm/versions/node/v18.16.1:$PATH
 
 - name: Install npm packages
   community.general.npm:
