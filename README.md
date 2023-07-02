@@ -50,3 +50,23 @@
 - [ts-node](https://github.com/TypeStrong/ts-node)
 - [eslint](https://eslint.org/)
 - [prettier](https://prettier.io/)
+
+### Terminal Tools
+- [jq](https://jqlang.github.io/jq/)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [rbenv](https://github.com/rbenv/rbenv)
+- [pyenv](https://github.com/pyenv/pyenv)
+- [terraform](https://www.terraform.io/)
+- [go](https://golang.org/)
+- [git](https://git-scm.com/)
+- [tree](http://mama.indstate.edu/users/ice/tree/)
+  
+### VSCode Extensions
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+- [Markdown Mermaid](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+- [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+- [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
