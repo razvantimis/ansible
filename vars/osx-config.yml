@@ -25,6 +25,11 @@ osxConfig:
     name: "System Preferences > Desktop & Dock > Automatically hide and show the menu bar: always"
     type: int
     value: 1
+  - domain: -globalDomain
+    key: AppleMenuBarVisibleInFullscreen
+    name: "System Preferences > Desktop & Dock > Automatically hide and show the menu bar: always - full screen"
+    type: int
+    value: 0
   ############################################################################
   - domain: com.apple.dock
     key: tilesize
