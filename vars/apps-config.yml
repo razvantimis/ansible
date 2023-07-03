@@ -31,4 +31,5 @@ brew_packages:
   - pyenv
   - rbenv
   - jq # it's like sed for JSON data 
-  - ripgrep #  recursively searches directories for a regex pattern while respecting your gitignore 
+  - ripgrep # recursively searches directories for a regex pattern while respecting your gitignore 
+  - lazygit 

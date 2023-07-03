@@ -60,6 +60,7 @@
 - [go](https://golang.org/)
 - [git](https://git-scm.com/)
 - [tree](http://mama.indstate.edu/users/ice/tree/)
+- [lazygit](https://github.com/jesseduffield/lazygit)
   
 ### VSCode Extensions
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
