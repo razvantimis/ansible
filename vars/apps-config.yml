@@ -33,4 +33,5 @@ brew_packages:
   - jq # it's like sed for JSON data 
   - ripgrep # recursively searches directories for a regex pattern while respecting your gitignore 
   - lazygit 
-  - libpg # postgress
+  - libpg # lib for postgress
+  - postgresql # database
