@@ -22,7 +22,7 @@ brew_cask_packages:
   - vlc
   - postman
   - notion
-  
+  - obsidian 
 brew_packages: 
   - go
   - git
