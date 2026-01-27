@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Suppress P10k instant prompt warning for commands that produce console output
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -128,3 +131,6 @@ export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
 # bun completions
 [ -s "/Users/razvan/.bun/_bun" ] && source "/Users/razvan/.bun/_bun"
+
+# Claude Code CLI
+export PATH="$HOME/.local/bin:$PATH"

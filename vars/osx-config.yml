@@ -53,7 +53,7 @@ osxConfig:
     value: true
   - domain: com.apple.dock
     key: mineffect
-    name: "System Preferences > Dock > Minimize windows using: Scale effect"
+    name: "System Preferences > Dock > Minimize windows using: Genie effect"
     type: string
     value: genie
   - domain: com.apple.dock
@@ -79,6 +79,13 @@ osxConfig:
   - domain: com.apple.dock
     key: workspaces-auto-swoosh
     name: "System Preferences > Mission Control > When switching to an application, switch to a Space with open windows for the application: On"
+    type: bool
+    value: true
+  ############################################################################
+  # AeroSpace window manager settings
+  - domain: com.apple.spaces
+    key: spans-displays
+    name: "System Preferences > Mission Control > Displays have separate Spaces: Off (for AeroSpace stability)"
     type: bool
     value: true
   ############################################################################
@@ -154,7 +161,7 @@ osxConfig:
     value: true
   - domain: com.apple.finder
     key: DisableAllAnimations
-    name: When opening a folder on the desktop there's an animation that conflicts with yabai trying to tile the window
+    name: Animation that conflicts with AeroSpace window manager
     type: bool
     value: true
 
@@ -180,21 +187,6 @@ osxConfig:
     type: bool
     value: true
 
-  - domain: com.apple.safari
-    key: FXDefaultSearchScope
-    name: Enable Safari developer menu
-    type: bool
-    value: true
-  - domain: com.apple.safari
-    key: WebKitDeveloperExtrasEnabledPreferenceKey
-    name: Enable Safari developer menu
-    type: bool
-    value: true
-  - domain: com.apple.safari
-    key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
-    name: Enable Safari developer menu
-    type: bool
-    value: true
   - domain: NSGlobalDomain
     key: WebKitDeveloperExtras
     name: Add context menu item to show web inspector
@@ -223,12 +215,48 @@ osxConfig:
   - domain: ~/Library/Preferences/ByHost/com.apple.controlcenter.plist
     key: Bluetooth
     type: int
-    value: 18 
-  - domain: com.apple.universalaccess
-    key: reduceMotion
-    name: "System Preferences > Accessibility > Display > Reduce motion: Off"
+    value: 18
+
+  # Fast key repeat for vim users
+  - domain: NSGlobalDomain
+    key: KeyRepeat
+    name: "System Preferences > Keyboard > Key Repeat Rate: Fast"
     type: int
-    value: 1
+    value: 2
+
+  - domain: NSGlobalDomain
+    key: InitialKeyRepeat
+    name: "System Preferences > Keyboard > Delay Until Repeat: Short"
+    type: int
+    value: 15
+
+  # Show hidden files in Finder
+  - domain: com.apple.finder
+    key: AppleShowAllFiles
+    name: "Finder > Show hidden files"
+    type: bool
+    value: true
+
+  # Disable screenshot shadow
+  - domain: com.apple.screencapture
+    key: disable-shadow
+    name: "Disable shadow in screenshots"
+    type: bool
+    value: true
+
+  # Disable .DS_Store on USB volumes
+  - domain: com.apple.desktopservices
+    key: DSDontWriteUSBStores
+    name: "Disable .DS_Store on USB/external volumes"
+    type: bool
+    value: true
+
+  # Full keyboard access (Tab through all UI controls)
+  - domain: NSGlobalDomain
+    key: AppleKeyboardUIMode
+    name: "System Preferences > Keyboard > Full keyboard access"
+    type: int
+    value: 3
 
 # Doccumentation about keyboard shortcuts:
 # https://krypted.com/mac-os-x/defaults-symbolichotkeys/
