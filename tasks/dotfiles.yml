@@ -3,25 +3,12 @@
     name: stow
     state: present
 
-- name: Ensure .dotfiles directory exists
-  file:
-    path: "{{ dotfiles_dir }}"
-    state: directory
-    mode: 0755
-
-- name: Sync dotfiles from playbook to ~/.dotfiles
-  synchronize:
-    src: "{{ dotfiles_source }}/"
-    dest: "{{ dotfiles_dir }}/"
-    recursive: yes
-    delete: yes
-
 - name: Make setup.sh executable
   file:
-    path: "{{ dotfiles_dir }}/setup.sh"
+    path: "{{ dotfiles_source }}/setup.sh"
     mode: 0755
 
 - name: Stow dotfiles
-  shell: cd {{ dotfiles_dir }} && ./setup.sh
+  shell: ./setup.sh "{{ dotfiles_source }}"
   args:
-    chdir: "{{ dotfiles_dir }}"
+    chdir: "{{ dotfiles_source }}"

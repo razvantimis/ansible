@@ -2,7 +2,6 @@ user_name: "{{ lookup('env', 'USER') }}"
 user_email: "r@timis.dev"
 user_full_name: "Razvan Timis"
 github_username: razvantimis
-dotfiles_dir: "{{ lookup('env', 'HOME') }}/.dotfiles"
 dotfiles_source: "{{ playbook_dir }}/dotfiles"
 
 # SSH
