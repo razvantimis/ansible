@@ -104,8 +104,9 @@ alt-e = 'layout accordion horizontal vertical'
 alt-shift-0 = 'balance-sizes'
 
 # App launchers
-alt-v = 'exec-and-forget open -a "Visual Studio Code"'
-alt-w = 'exec-and-forget open -a Arc'
+alt-t = 'exec-and-forget open -a Alacritty'
+alt-w = 'exec-and-forget open -a "Google Chrome"'
+alt-c = 'exec-and-forget open -a "Visual Studio Code"'
 
 # Monitor switching (with follow)
 alt-shift-n = 'move-node-to-monitor next --focus-follows-window'
