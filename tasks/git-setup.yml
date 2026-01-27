@@ -2,11 +2,22 @@
   git_config:
     name: user.email
     scope: global
-    value: "r@timis.dev"
- 
+    value: "{{ user_email }}"
+
 - name: Git personal setup name
   git_config:
     name: user.name
     scope: global
-    value: "Razvan Timis"
-  
+    value: "{{ user_full_name }}"
+
+- name: Set default branch to main
+  git_config:
+    name: init.defaultBranch
+    scope: global
+    value: main
+
+- name: Set pull.rebase to true
+  git_config:
+    name: pull.rebase
+    scope: global
+    value: "true"

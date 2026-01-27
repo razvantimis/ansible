@@ -1,11 +1,6 @@
-
 packages:
-  - yarn
   - pnpm
-  - eslint
   - typescript
-  - ts-node
-  - prettier
 
 brew_cask_packages:
   - google-chrome
@@ -13,25 +8,24 @@ brew_cask_packages:
   - firefox
   - google-drive
   - slack
-  - skype
-  - zoom
-  - discord
-  - spotify
   - visual-studio-code
   - docker
   - vlc
   - postman
-  - notion
-  - obsidian 
-brew_packages: 
+  - nikitabobko/tap/aerospace
+
+brew_packages:
   - go
   - git
-  - tree
-  - terraform
-  - pyenv
-  - rbenv
-  - jq # it's like sed for JSON data 
-  - ripgrep # recursively searches directories for a regex pattern while respecting your gitignore 
-  - lazygit 
-  - libpg # lib for postgress
-  - postgresql # database
+  - lazygit
+  - stow
+
+vscode_extensions:
+  - dbaeumer.vscode-eslint
+  - GitHub.copilot
+  - eamodio.gitlens
+  - yzhang.markdown-all-in-one
+  - zhuangtongfa.material-theme
+  - bierner.markdown-mermaid
+  - esbenp.prettier-vscode
+  - vscodevim.vim

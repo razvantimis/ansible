@@ -1,18 +1,22 @@
 - name: Install nvm
   shell: >
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
   args:
     creates: "{{ lookup('env', 'HOME') }}/.nvm/nvm.sh"
 
-- name: Install node 18
-  shell: source ~/.nvm/nvm.sh && nvm install 18.16.1
+- name: Install Node.js LTS
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install --lts
+  args:
+    executable: /bin/bash
 
-- name: Add npm global in path
-  shell: export PATH=$HOME/.nvm/versions/node/v18.16.1:$PATH
-  # TODO: Reload the terminal ?? because it doesnt work
 - name: Install npm packages
-  community.general.npm:
-    name: "{{ item }}"
-    state: present
-    global: yes
-  loop: "{{ packages }}" 
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    npm install -g {{ item }}
+  args:
+    executable: /bin/bash
+  loop: "{{ packages }}"

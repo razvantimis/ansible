@@ -3,24 +3,25 @@
     name: stow
     state: present
 
-- name: Check if .dotfiles repo exists
-  stat:
-    path: "{{ lookup('env', 'HOME') }}/.dotfiles"
-  register: dotfiles_repo
+- name: Ensure .dotfiles directory exists
+  file:
+    path: "{{ dotfiles_dir }}"
+    state: directory
+    mode: 0755
 
-- name: Cloning .dotfiles repo
-  git:
-    repo: "git@github.com:{{ github_username }}/.dotfiles.git"
-    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+- name: Sync dotfiles from playbook to ~/.dotfiles
+  synchronize:
+    src: "{{ dotfiles_source }}/"
+    dest: "{{ dotfiles_dir }}/"
     recursive: yes
-    update: yes
-    accept_hostkey: yes
-    version: main
-  when: not dotfiles_repo.stat.exists
+    delete: yes
 
-- name: Fetching latest .dotfiles
-  shell: cd $HOME/.dotfiles && git pull origin main --force
-  when: dotfiles_repo.stat.exists
+- name: Make setup.sh executable
+  file:
+    path: "{{ dotfiles_dir }}/setup.sh"
+    mode: 0755
 
 - name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && ./setup.sh
+  shell: cd {{ dotfiles_dir }} && ./setup.sh
+  args:
+    chdir: "{{ dotfiles_dir }}"

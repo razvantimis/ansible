@@ -6,14 +6,6 @@
 1. Run `chmod +x bootstrap.sh`
 2. Run `./bootstrap.sh`
 
-### Extra manual steps after bootstrap
-
-1. **M1 Chip**: Disabling System Integrity Protection for yabai - https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
-   1. Enter recovery mode by restarting your machine and holding `power button` until the "Loading startup options" appears.
-   2. On m1 run `csrutil enable --without fs --without debug --without nvram` in recovery mode terminal
-   3. After reboot run `sudo nvram boot-args=-arm64e_preview_abi` in terminal
-   4. And finally you can check if everything is ok by running `csrutil status` in terminal
-
 ## Software
 
 - Terminal: [Alacritty](https://alacritty.org)
@@ -21,52 +13,37 @@
 - Colors: [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - Shell: [ohmyz](https://ohmyz.sh/)
 - Multiplexer: [tmux](https://github.com/tmux/tmux/wiki)
-- Window manager: [yabai](https://github.com/koekeishiya/yabai)
-- Hotkey manager: [skhd](https://github.com/koekeishiya/skhd)
-- Editor: [VSCode](https://neovim.io) / [Neovim](https://neovim.io) - in progress
+- Window manager: [AeroSpace](https://github.com/nikitabobko/AeroSpace)
+- Editor: [VSCode](https://code.visualstudio.com/)
 - macOS package manager: [Homebrew](https://brew.sh)
-- npm package manager: [pnpm](https://pnpm.io/) / [yarn](https://yarnpkg.com/)
+- npm package manager: [pnpm](https://pnpm.io/)
 
 ### MacOS software
 - [Google Chrome](https://www.google.com/chrome/)
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
 - [Slack](https://slack.com/downloads/mac)
-- [Zoom](https://zoom.us/download)
-- [Discord](https://discord.com/download)
-- [Spotify](https://www.spotify.com/us/download/mac/)
-- [Skype](https://www.skype.com/en/get-skype/download-skype-for-desktop/)
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [Postman](https://www.postman.com/downloads/)
-- [Notion](https://www.notion.so/desktop)
-- [Vlc](https://www.videolan.org/vlc/download-macosx.html)
-- [Vscode](https://code.visualstudio.com/download)
+- [VLC](https://www.videolan.org/vlc/download-macosx.html)
+- [VSCode](https://code.visualstudio.com/download)
 - [Google Drive](https://www.google.com/drive/download/)
 
-### Npm global packages
-- [pnpm](https://pnpm.io/)
-- [yarn](https://yarnpkg.com/)
-- [typescript](https://www.typescriptlang.org/)
-- [ts-node](https://github.com/TypeStrong/ts-node)
-- [eslint](https://eslint.org/)
-- [prettier](https://prettier.io/)
-
-### Terminal Tools
-- [jq](https://jqlang.github.io/jq/)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [rbenv](https://github.com/rbenv/rbenv)
-- [pyenv](https://github.com/pyenv/pyenv)
-- [terraform](https://www.terraform.io/)
+### Brew packages
 - [go](https://golang.org/)
 - [git](https://git-scm.com/)
-- [tree](http://mama.indstate.edu/users/ice/tree/)
 - [lazygit](https://github.com/jesseduffield/lazygit)
-  
+- [stow](https://www.gnu.org/software/stow/)
+
+### npm global packages
+- [pnpm](https://pnpm.io/)
+- [typescript](https://www.typescriptlang.org/)
+
 ### VSCode Extensions
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-- [Markdown Mermaid](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
+- [Markdown Mermaid](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)

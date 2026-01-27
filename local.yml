@@ -1,72 +1,64 @@
 - name: Bootstrap OSX dev machine
-  hosts: localhost 
-  gather_facts: no  
+  hosts: localhost
+  gather_facts: yes
   vars_files:
     - ./vars/personal.yml
     - ./vars/osx-config.yml
     - ./vars/apps-config.yml
   tasks:
-    - include_tasks: 
+    - include_tasks:
         file: tasks/ssh.yml
         apply:
-          tags: 
+          tags:
             - ssh
-      tags: 
+      tags:
         - ssh
-    - include_tasks: 
+    - include_tasks:
         file: tasks/git-setup.yml
         apply:
-          tags: 
+          tags:
             - git
-      tags: 
+      tags:
         - git
-    - include_tasks: 
-        file: tasks/node-setup.yml
-        apply:
-          tags: 
-            - node
-      tags: 
-        - node
-    - include_tasks: 
-        file: tasks/terminal-setup.yml
-        apply:
-          tags: 
-            - terminal 
-      tags: 
-        - terminal 
-    - include_tasks: 
-        file: tasks/nvim-setup.yml
-        apply:
-          tags: 
-            - nvim 
-      tags: 
-        - nvim 
-    - include_tasks: 
-        file: tasks/macos.yml
-        apply:
-          tags: 
-            - macos 
-      tags: 
-        - macos
-    - include_tasks: 
+    - include_tasks:
         file: tasks/apps.yml
         apply:
-          tags: 
-            - apps 
-      tags: 
+          tags:
+            - apps
+      tags:
         - apps
-    - include_tasks: 
-        file: tasks/window-manager.yml
+    - include_tasks:
+        file: tasks/node-setup.yml
         apply:
-          tags: 
-            - window-manager 
-      tags: 
-        - window-manager
-    - include_tasks: 
+          tags:
+            - node
+      tags:
+        - node
+    - include_tasks:
+        file: tasks/terminal-setup.yml
+        apply:
+          tags:
+            - terminal
+      tags:
+        - terminal
+    - include_tasks:
         file: tasks/dotfiles.yml
         apply:
-          tags: 
-            - dotfiles 
-      tags: 
+          tags:
+            - dotfiles
+      tags:
         - dotfiles
-
+    - include_tasks:
+        file: tasks/window-manager.yml
+        apply:
+          tags:
+            - window-manager
+      tags:
+        - window-manager
+    - include_tasks:
+        file: tasks/macos.yml
+        apply:
+          tags:
+            - macos
+      tags:
+        - macos
