@@ -47,10 +47,6 @@ run = 'layout floating'
 if.app-id = 'com.apple.AppStore'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-name-regex-substring = 'IntelliJ'
-run = 'layout floating'
-
 [mode.main.binding]
 # Focus (matches skhd config)
 alt-h = 'focus left'
