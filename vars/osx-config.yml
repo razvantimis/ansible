@@ -88,22 +88,6 @@ osxConfig:
     name: "System Preferences > Mission Control > Displays have separate Spaces: Off (for AeroSpace stability)"
     type: bool
     value: true
-  # Disable Mission Control gestures to prevent Spaces interference with AeroSpace
-  - domain: com.apple.dock
-    key: showMissionControlGestureEnabled
-    name: "Trackpad > Mission Control gesture: Off (for AeroSpace)"
-    type: bool
-    value: false
-  - domain: com.apple.AppleMultitouchTrackpad
-    key: TrackpadThreeFingerVertSwipeGesture
-    name: "Trackpad > Three finger vertical swipe (Mission Control): Off (for AeroSpace)"
-    type: int
-    value: 0
-  - domain: com.apple.AppleMultitouchMouse
-    key: MouseTwoFingerDoubleTapGesture
-    name: "Mouse > Mission Control double-tap gesture: Off (for AeroSpace)"
-    type: int
-    value: 0
   ############################################################################
   - domain: com.apple.finder
     key: AppleShowAllExtensions
@@ -251,7 +235,7 @@ osxConfig:
     key: AppleShowAllFiles
     name: "Finder > Show hidden files"
     type: bool
-    value: true
+    value: false
 
   # Disable screenshot shadow
   - domain: com.apple.screencapture
