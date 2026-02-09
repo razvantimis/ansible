@@ -134,3 +134,7 @@ export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
 # Claude Code CLI
 export PATH="$HOME/.local/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
