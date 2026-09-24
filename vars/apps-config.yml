@@ -5,6 +5,7 @@ npm_packages:
 # Shared by every profile; per-profile extras live in vars/profiles/*.yml
 brew_cask_packages:
   - vivaldi
+  - google-chrome
   - firefox
   - microsoft-edge
   - visual-studio-code
