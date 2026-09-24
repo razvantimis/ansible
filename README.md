@@ -55,5 +55,4 @@ Run a profile directly with `ansible-playbook local.yml -e profile=work --ask-be
 - [Markdown Mermaid](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-- [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 - [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)

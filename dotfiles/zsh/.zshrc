@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='code --wait'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

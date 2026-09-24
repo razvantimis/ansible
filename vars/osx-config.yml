@@ -217,7 +217,7 @@ osxConfig:
     type: int
     value: 18
 
-  # Fast key repeat for vim users
+  # Fast key repeat
   - domain: NSGlobalDomain
     key: KeyRepeat
     name: "System Preferences > Keyboard > Key Repeat Rate: Fast"
