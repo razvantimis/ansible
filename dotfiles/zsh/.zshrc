@@ -113,15 +113,8 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export GOPATH=$HOME/go
 
 
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
 # Claude Code CLI
 export PATH="$HOME/.local/bin:$PATH"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
