@@ -14,7 +14,6 @@ brew_packages:
   - git
   - lazygit
   - stow
-  - rbenv
 
 vscode_extensions:
   - dbaeumer.vscode-eslint

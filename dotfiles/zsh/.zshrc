@@ -101,10 +101,6 @@ export PATH="$PNPM_HOME:$PATH"
 export PATH="${M2_HOME}/bin:${PATH}"
 export PATH="$HOME/Library/Python/3.9/bin:${PATH}"
 
-# Setup rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-command -v rbenv >/dev/null && eval "$(rbenv init -)"
-
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
