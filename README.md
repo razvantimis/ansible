@@ -16,6 +16,8 @@ Run a profile directly with `ansible-playbook local.yml -e profile=work --ask-be
 
 ## Software
 
-Terminal stack: [Alacritty](https://alacritty.org) + [tmux](https://github.com/tmux/tmux/wiki) + zsh with [oh-my-zsh](https://ohmyz.sh/) and [powerlevel10k](https://github.com/romkatv/powerlevel10k) (MesloLGS NF font). Window manager: [AeroSpace](https://github.com/nikitabobko/AeroSpace). Editor: VS Code.
+Terminal stack: [Alacritty](https://alacritty.org) + [tmux](https://github.com/tmux/tmux/wiki) + zsh with [oh-my-zsh](https://ohmyz.sh/) and [powerlevel10k](https://github.com/romkatv/powerlevel10k) (Meslo Nerd Font). Window manager: [AeroSpace](https://github.com/nikitabobko/AeroSpace). Editor: VS Code.
+
+Runtimes (node, java, python, global npm CLIs) are managed by [mise](https://mise.jdx.dev); containers run on [colima](https://github.com/abiosoft/colima) with the Homebrew docker CLI, no Docker Desktop.
 
 The full list of Homebrew packages, casks, npm globals and VS Code extensions lives in `vars/apps-config.yml`; per-profile extras in `vars/profiles/`.
