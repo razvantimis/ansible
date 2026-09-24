@@ -176,6 +176,16 @@ osxConfig:
     name: "System Preferences > Trackpad > Tap to click: On"
     type: int
     value: 1
+  - domain: NSGlobalDomain
+    key: WebKitDeveloperExtras
+    name: Add context menu item to show web inspector
+    type: bool
+    value: true
+  - domain: com.apple.SoftwareUpdate
+    key: ScheduleFrequency
+    name: Check for software updates weekly
+    type: int
+    value: 7
   - domain: com.apple.desktopservices
     key: DSDontWriteNetworkStores
     name: Disable creation of .DS_Store files on network volumes
