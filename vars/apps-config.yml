@@ -21,6 +21,7 @@ brew_cask_packages:
 brew_packages:
   - go
   - git
+  - gh
   - lazygit
   - bun
   # containers: colima VM + docker CLI, no Docker Desktop
