@@ -10,5 +10,4 @@ profile_cask_packages:
   - google-drive
   - microsoft-edge
   - firefox
-  - slack
   - vlc

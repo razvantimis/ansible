@@ -31,7 +31,6 @@ Run a profile directly with `ansible-playbook local.yml -e profile=work --ask-be
 - [Google Chrome](https://www.google.com/chrome/)
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/) (personal only)
 - [Microsoft Edge](https://www.microsoft.com/en-us/edge) (personal only)
-- [Slack](https://slack.com/downloads/mac)
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [Postman](https://www.postman.com/downloads/)
 - [VLC](https://www.videolan.org/vlc/download-macosx.html) (personal only)
