@@ -76,12 +76,6 @@ plugins=(
  git
  zsh-autosuggestions
  zsh-syntax-highlighting
- sudo
- web-search
- copypath
- dirhistory
- history
- macos
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -94,12 +88,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PNPM_HOME="$HOME/Library/pnpm"
-export M2_HOME="$HOME/tools/apache-maven-3.8.6"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
-export PATH="${M2_HOME}/bin:${PATH}"
-export PATH="$HOME/Library/Python/3.9/bin:${PATH}"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
@@ -115,10 +106,8 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
 # $GOPATH
 export GOPATH=$HOME/go
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
 
 # bun completions

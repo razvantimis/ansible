@@ -176,22 +176,12 @@ osxConfig:
     name: "System Preferences > Trackpad > Tap to click: On"
     type: int
     value: 1
-  - domain: com.apple.TimeMachine
-    key: DoNotOfferNewDisksForBackup
-    name: Disable prompting to use new external drives as Time Machine volume
-    type: bool
-    value: true
   - domain: com.apple.desktopservices
     key: DSDontWriteNetworkStores
     name: Disable creation of .DS_Store files on network volumes
     type: bool
     value: true
 
-  - domain: NSGlobalDomain
-    key: WebKitDeveloperExtras
-    name: Add context menu item to show web inspector
-    type: bool
-    value: true
   - domain: com.apple.screencapture
     key: location
     name: Save screenshots to ~/Pictures
@@ -202,20 +192,11 @@ osxConfig:
     name: Set screencapture file type to PNG
     value: png
 
-  - domain: com.apple.SoftwareUpdate
-    key: ScheduleFrequency
-    name: Check for software updates weekly
-    type: int
-    value: 7
   - domain: com.apple.AppleMultitouchMouse
     key: MouseButtonMode
     name: Enable secondary click in external mouse
     type: string
     value: TwoButton
-  - domain: ~/Library/Preferences/ByHost/com.apple.controlcenter.plist
-    key: Bluetooth
-    type: int
-    value: 18
 
   # Fast key repeat
   - domain: NSGlobalDomain

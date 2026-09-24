@@ -28,10 +28,3 @@
   debug:
     msg: "{{ lookup('file', dest_key + '.pub') }}"
   when: source_key is not defined
-
-- name: Set authorized key from file
-  authorized_key:
-    user: "{{ user_name }}"
-    state: present
-    key: "{{ lookup('file', dest_key + '.pub') }}"
-  ignore_errors: yes
