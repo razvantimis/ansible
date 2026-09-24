@@ -95,8 +95,6 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
 
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
