@@ -10,6 +10,7 @@ brew_cask_packages:
   - visual-studio-code
   - docker
   - postman
+  - vlc
 
 brew_packages:
   - go

@@ -8,4 +8,3 @@ source_key: "{{ playbook_dir }}/secrets/id_ed25519"
 
 profile_cask_packages:
   - google-drive
-  - vlc
