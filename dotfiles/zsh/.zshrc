@@ -78,6 +78,9 @@ plugins=(
  zsh-syntax-highlighting
 )
 
+# Completions must be on fpath before oh-my-zsh runs compinit.
+fpath=(~/.grok/completions/zsh $fpath)
+
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
@@ -131,8 +134,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
 
-# >>> grok installer >>>
+# grok
 export PATH="$HOME/.grok/bin:$PATH"
-fpath=(~/.grok/completions/zsh $fpath)
-autoload -Uz compinit && compinit -C
-# <<< grok installer <<<
