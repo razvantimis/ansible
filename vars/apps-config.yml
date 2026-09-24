@@ -16,7 +16,6 @@ brew_packages:
   - go
   - git
   - lazygit
-  - stow
 
 vscode_extensions:
   - dbaeumer.vscode-eslint

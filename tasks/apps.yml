@@ -1,24 +1,15 @@
-- name: Update homebrew
-  homebrew:
-    update_homebrew: yes
-
 - name: Install homebrew packages
   homebrew:
-    name: "{{ item }}"
+    name: "{{ brew_packages }}"
     state: present
-  loop: "{{ brew_packages }}"
-  when: brew_packages is defined
-  ignore_errors: true
+    update_homebrew: yes
 
 - name: Install homebrew cask packages
   homebrew_cask:
     name: "{{ item }}"
     state: present
   loop: "{{ brew_cask_packages + profile_cask_packages | default([]) }}"
-  ignore_errors: true
 
 - name: Install VSCode extensions
   shell: code --install-extension {{ item }}
   loop: "{{ vscode_extensions }}"
-  when: vscode_extensions is defined
-  ignore_errors: true
