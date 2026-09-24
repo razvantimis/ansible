@@ -17,7 +17,6 @@ brew_packages:
 
 vscode_extensions:
   - dbaeumer.vscode-eslint
-  - GitHub.copilot
   - eamodio.gitlens
   - yzhang.markdown-all-in-one
   - zhuangtongfa.material-theme
