@@ -15,7 +15,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 export ZSH="$HOME/.oh-my-zsh"
 
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# Theme and plugins come from Homebrew, sourced after oh-my-zsh below.
+ZSH_THEME=""
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -74,14 +75,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
  git
- zsh-autosuggestions
- zsh-syntax-highlighting
 )
 
 # Completions must be on fpath before oh-my-zsh runs compinit.
 fpath=(~/.grok/completions/zsh $fpath)
 
 source $ZSH/oh-my-zsh.sh
+
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# syntax-highlighting must be sourced after every other widget-binding plugin
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # User configuration
 
 # Preferred editor for local and remote sessions
