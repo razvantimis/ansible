@@ -4,6 +4,26 @@
     state: present
     update_homebrew: yes
 
+- name: Create docker config dir
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.docker"
+    state: directory
+    mode: 0700
+
+# Only seeds a fresh machine; an existing config.json (registry creds) is left alone.
+- name: Let docker find brew's compose and buildx plugins
+  copy:
+    dest: "{{ lookup('env', 'HOME') }}/.docker/config.json"
+    content: |
+      {
+        "cliPluginsExtraDirs": ["/opt/homebrew/lib/docker/cli-plugins"]
+      }
+    force: false
+
+- name: Start colima at login
+  command: brew services start colima
+  changed_when: false
+
 - name: Install homebrew cask packages
   homebrew_cask:
     name: "{{ item }}"

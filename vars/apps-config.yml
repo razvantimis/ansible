@@ -16,7 +16,6 @@ brew_cask_packages:
   - firefox
   - microsoft-edge
   - visual-studio-code
-  - docker
   - vlc
 
 brew_packages:
@@ -24,6 +23,11 @@ brew_packages:
   - git
   - lazygit
   - bun
+  # containers: colima VM + docker CLI, no Docker Desktop
+  - colima
+  - docker
+  - docker-compose
+  - docker-buildx
 
 vscode_extensions:
   - dbaeumer.vscode-eslint
