@@ -31,12 +31,12 @@
       tags:
         - apps
     - include_tasks:
-        file: tasks/node-setup.yml
+        file: tasks/runtimes.yml
         apply:
           tags:
-            - node
+            - runtimes
       tags:
-        - node
+        - runtimes
     - include_tasks:
         file: tasks/terminal-setup.yml
         apply:

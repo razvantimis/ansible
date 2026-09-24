@@ -1,3 +1,10 @@
+# Installed via mise (tasks/runtimes.yml); any tool@version mise understands
+mise_tools:
+  - node@lts
+  - java@temurin-21
+  - python@3
+
+# Global npm CLIs, also via mise
 npm_packages:
   - pnpm
   - typescript

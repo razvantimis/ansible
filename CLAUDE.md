@@ -21,14 +21,14 @@ ansible-playbook local.yml --tags "apps" --ask-become-pass --ask-vault-pass
 ansible-playbook local.yml --tags "ssh,git,terminal" --ask-become-pass --ask-vault-pass
 ```
 
-Available tags: `ssh`, `git`, `node`, `terminal`, `macos`, `apps`, `window-manager`, `dotfiles`
+Available tags: `ssh`, `git`, `runtimes`, `terminal`, `macos`, `apps`, `window-manager`, `dotfiles`
 
 ## Architecture
 
 **Entry Point**: `local.yml` - Main playbook targeting localhost, includes all task files with tags
 
 **Task Modules** (`tasks/`):
-- Each task file handles one aspect of setup (SSH, Git, Node, terminal, macOS defaults, apps, window manager, dotfiles)
+- Each task file handles one aspect of setup (SSH, Git, runtimes via mise, terminal, macOS defaults, apps, window manager, dotfiles)
 - Tasks use tags for selective execution
 - Most tasks use `become: true` for privilege escalation
 - Homebrew tasks run as current user (no `become_user`) since Homebrew is designed to run without sudo

@@ -1,0 +1,17 @@
+# mise manages every language runtime (node, java, python, ...) and global
+# npm CLIs, replacing nvm, sdkman and pyenv. Shell hook lives in dotfiles/zsh/.zshrc.
+
+- name: Install mise
+  homebrew:
+    name: mise
+    state: present
+
+- name: Install runtimes
+  command: mise use --global {{ item }}
+  loop: "{{ mise_tools }}"
+  changed_when: false
+
+- name: Install npm CLIs
+  command: mise use --global npm:{{ item }}
+  loop: "{{ npm_packages }}"
+  changed_when: false
