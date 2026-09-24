@@ -1,0 +1,9 @@
+# Personal machine: identity, vaulted SSH key, and the apps only I want.
+user_email: "r@timis.dev"
+user_full_name: "Razvan Timis"
+
+# Copied from the vault; requires --ask-vault-pass.
+source_key: "{{ playbook_dir }}/secrets/id_ed25519"
+
+profile_cask_packages:
+  - google-drive

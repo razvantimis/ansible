@@ -1,8 +1,11 @@
 - name: Bootstrap OSX dev machine
   hosts: localhost
   gather_facts: yes
+  vars:
+    profile: personal
   vars_files:
-    - ./vars/personal.yml
+    - ./vars/common.yml
+    - "./vars/profiles/{{ profile }}.yml"
     - ./vars/osx-config.yml
     - ./vars/apps-config.yml
   tasks:
@@ -28,12 +31,12 @@
       tags:
         - apps
     - include_tasks:
-        file: tasks/node-setup.yml
+        file: tasks/runtimes.yml
         apply:
           tags:
-            - node
+            - runtimes
       tags:
-        - node
+        - runtimes
     - include_tasks:
         file: tasks/terminal-setup.yml
         apply:

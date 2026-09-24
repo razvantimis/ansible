@@ -1,32 +1,38 @@
-packages:
-  - pnpm
-  - typescript
+# Installed via mise (tasks/runtimes.yml); any tool@version mise understands
+mise_tools:
+  - node@lts
+  - java@temurin-21
+  - python@3
 
+# Global npm CLIs, also via mise
+npm_packages:
+  - pnpm
+
+# Shared by every profile; per-profile extras live in vars/profiles/*.yml
 brew_cask_packages:
+  - vivaldi
   - google-chrome
-  - microsoft-edge
   - firefox
-  - google-drive
-  - slack
+  - microsoft-edge
   - visual-studio-code
-  - docker
   - vlc
-  - postman
-  - nikitabobko/tap/aerospace
 
 brew_packages:
   - go
   - git
+  - gh
   - lazygit
-  - stow
-  - rbenv
+  - bun
+  # containers: colima VM + docker CLI, no Docker Desktop
+  - colima
+  - docker
+  - docker-compose
+  - docker-buildx
 
 vscode_extensions:
   - dbaeumer.vscode-eslint
-  - GitHub.copilot
   - eamodio.gitlens
   - yzhang.markdown-all-in-one
   - zhuangtongfa.material-theme
   - bierner.markdown-mermaid
   - esbenp.prettier-vscode
-  - vscodevim.vim

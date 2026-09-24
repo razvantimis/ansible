@@ -2,3 +2,4 @@
 *.retry
 .DS_Store
 .vault_pass
+*.bak.*

@@ -1,0 +1,4 @@
+dotfiles_source: "{{ playbook_dir }}/dotfiles"
+
+# SSH
+dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"

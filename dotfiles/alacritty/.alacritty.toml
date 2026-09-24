@@ -13,19 +13,19 @@ TERM = "xterm-256color"
 size = 18.0
 
 [font.bold]
-family = "MesloLGS NF"
+family = "MesloLGS Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "MesloLGS NF"
+family = "MesloLGS Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "MesloLGS NF"
+family = "MesloLGS Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "MesloLGS NF"
+family = "MesloLGS Nerd Font Mono"
 style = "Regular"
 
 [[keyboard.bindings]]
@@ -56,34 +56,6 @@ mods = "Command"
 [[keyboard.bindings]]
 chars = "\u0000L"
 key = "L"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = """
-:GoToFile
-"""
-key = "P"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = """
-:GoToCommand
-"""
-key = "P"
-mods = "Command|Shift"
-
-[[keyboard.bindings]]
-chars = """
-:q
-"""
-key = "Q"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = """
-\u001B:w
-"""
-key = "S"
 mods = "Command"
 
 [[keyboard.bindings]]

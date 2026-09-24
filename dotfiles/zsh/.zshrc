@@ -15,7 +15,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 export ZSH="$HOME/.oh-my-zsh"
 
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# Theme and plugins come from Homebrew, sourced after oh-my-zsh below.
+ZSH_THEME=""
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -74,42 +75,28 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
  git
- zsh-autosuggestions
- zsh-syntax-highlighting
- sudo
- web-search
- copypath
- dirhistory
- history
- macos
 )
 
+# Completions must be on fpath before oh-my-zsh runs compinit.
+fpath=(~/.grok/completions/zsh $fpath)
+
 source $ZSH/oh-my-zsh.sh
+
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# syntax-highlighting must be sourced after every other widget-binding plugin
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # User configuration
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='code --wait'
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# mise: node, java, python and global npm CLIs
+eval "$(mise activate zsh)"
 export PNPM_HOME="$HOME/Library/pnpm"
-export M2_HOME="$HOME/tools/apache-maven-3.8.6"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
-export PATH="${M2_HOME}/bin:${PATH}"
-export PATH="$HOME/Library/Python/3.9/bin:${PATH}"
-
-# Setup rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -123,18 +110,17 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
 # $GOPATH
 export GOPATH=$HOME/go
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
-
-# bun completions
-[ -s "/Users/razvan/.bun/_bun" ] && source "/Users/razvan/.bun/_bun"
 
 # Claude Code CLI
 export PATH="$HOME/.local/bin:$PATH"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+alias claude="caffeinate -i claude"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# grok
+export PATH="$HOME/.grok/bin:$PATH"
