@@ -1,31 +1,31 @@
 ---
 osxConfig:
-  - domain: -globalDomain
+  - domain: NSGlobalDomain
     key: AppleInterfaceStyleSwitchesAutomatically
     name: System Preferences > General > Appearance
     type: bool
     value: false
-  - domain: -globalDomain
+  - domain: NSGlobalDomain
     key: AppleInterfaceStyle
     name: System Preferences > General > Appearance
     type: string
     value: Dark
-  - domain: -globalDomain
+  - domain: NSGlobalDomain
     key: AppleScrollerPagingBehavior
     name: "System Preferences > General > Click in the scrollbar to: Jump to the spot that's clicked"
     type: bool
     value: true
-  - domain: -globalDomain
+  - domain: NSGlobalDomain
     key: NSTableViewDefaultSizeMode
     name: "System Preferences > General > Sidebar icon size: Medium"
     type: int
     value: 2
-  - domain: -globalDomain
+  - domain: NSGlobalDomain
     key: _HIHideMenuBar
     name: "System Preferences > Desktop & Dock > Automatically hide and show the menu bar: always"
     type: int
     value: 1
-  - domain: -globalDomain
+  - domain: NSGlobalDomain
     key: AppleMenuBarVisibleInFullscreen
     name: "System Preferences > Desktop & Dock > Automatically hide and show the menu bar: always - full screen"
     type: int
@@ -195,6 +195,7 @@ osxConfig:
   - domain: com.apple.screencapture
     key: location
     name: Save screenshots to ~/Pictures
+    type: string
     value: "{{ lookup('env', 'HOME') }}/Pictures"
   - domain: com.apple.screencapture
     key: type
@@ -254,61 +255,3 @@ osxConfig:
     type: int
     value: 3
 
-# Doccumentation about keyboard shortcuts:
-# https://krypted.com/mac-os-x/defaults-symbolichotkeys/
-# https://stackoverflow.com/questions/21878482/what-do-the-parameter-values-in-applesymbolichotkeys-plist-dict-represent
-# param_3:
-#  0=>"No modifier",
-#   131072=>"Shift",
-#   262144=>"Control",
-#   524288=>"Option",
-#   1048576=>"Command",
-#   393216=>"Shift + Control",
-#   655360=>"Shift + Option",
-#   1179648=>"Shift + Command",
-#   786432=>"Control + Option",
-#   1310720=>"Control + Command",
-#   1572864=>"Option + Command",
-#   917504=>"Shift + Control + Option",
-#   1441792=>"Shift + Control + Command",
-#   1703936=>"Shift + Option + Command",
-#   1835008=>"Control + Option + Command",
-#   1966080=>"Shift + Control + Option + Command",
-# Add modifier values together in the 3rd parameter to combine them.
-# Why are not working?....
-keyboardSettings:
-  #  Move focus to the Dock - Option+D
-  - 8: "{ enabled = 1; value = { parameters = (100, 2, 524288); type = 'standard'; }; }"
-  # Turn zoom on or off - Command, Option, 8
-  - 15: "{ enabled = 0; }"
-  # ??
-  - 16: "{ enabled = 0; }"
-  - 17: "{ enabled = 0; }"
-  - 18: "{ enabled = 0; }"
-  - 19: "{ enabled = 0; }"
-  - 20: "{ enabled = 0; }"
-  - 21: "{ enabled = 0; }"
-  - 22: "{ enabled = 0; }"
-  - 23: "{ enabled = 0; }"
-  - 24: "{ enabled = 0; }"
-  - 25: "{ enabled = 0; }"
-  - 26: "{ enabled = 0; }"
-  - 36: "{ enabled = 1; value = { parameters = (65535, 103, 8388608); type = 'standard'; }; }"
-  - 37: "{ enabled = 1; value = { parameters = (65535, 103, 8519680); type = 'standard'; }; }"
-  # Select the previous input source - Control, Space
-  - 60: "{ enabled = 0; value = { parameters = (32, 49, 262144); type = 'standard'; }; }"
-  # Select the next input source - Control, Option, Space
-  - 61: "{ enabled = 0; value = { parameters = (32, 49, 786432); type = 'standard'; }; }"
-  - 64: "{ enabled = 1; value = { parameters = (65535, 49, 1048576); type = 'standard'; }; }"
-  - 65: "{ enabled = 1; value = { parameters = (65535, 49, 1572864); type = 'standard'; }; }"
-  # Spaces Left - Control, Left
-  - 79: "{ enabled = 1; value = { parameters = (65535, 123, 8650752); type = 'standard'; }; }"
-  - 80: "{ enabled = 1; value = { parameters = (65535, 123, 8781824); type = 'standard'; }; }"
-  # Spaces Right - Control, Right
-  - 81: "{ enabled = 1; value = { parameters = (65535, 124, 8650752); type = 'standard'; }; }"
-  - 82: "{ enabled = 1; value = { parameters = (65535, 124, 8781824); type = 'standard'; }; }"
-  # Switch to Space 1 - Control, 1
-  - 118: "{ enabled = 1; value = { parameters = (65535, 18, 262144); type = 'standard'; }; }"
-  - 160: "{ enabled = 0; value = { parameters = (65535, 65535, 0); type = 'standard'; }; }"
-
-  - 164: "{ enabled = 1; value = { parameters = (262144, 4294705151); type = 'modifier'; }; }"
