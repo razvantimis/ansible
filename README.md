@@ -3,8 +3,7 @@
 
 ## How to install
 
-1. Run `chmod +x bootstrap.sh`
-2. Run `./bootstrap.sh` (personal machine) or `./bootstrap.sh work` (work machine)
+Run `./bootstrap.sh` (personal machine) or `./bootstrap.sh work` (work machine)
 
 ## Profiles
 

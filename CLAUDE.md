@@ -10,7 +10,7 @@ This is a personal macOS development environment bootstrap playbook using Ansibl
 
 ```bash
 # Full bootstrap (installs Homebrew, Ansible, then runs playbook); profile defaults to personal
-chmod +x bootstrap.sh && ./bootstrap.sh [personal|work]
+./bootstrap.sh [personal|work]
 
 # Run playbook directly (requires Ansible installed)
 ansible-playbook local.yml --ask-become-pass --ask-vault-pass            # personal
