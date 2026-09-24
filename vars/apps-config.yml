@@ -10,7 +10,6 @@ brew_cask_packages:
   - microsoft-edge
   - visual-studio-code
   - docker
-  - postman
   - vlc
 
 brew_packages:
