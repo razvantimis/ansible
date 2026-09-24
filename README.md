@@ -11,7 +11,7 @@
 `vars/profiles/<profile>.yml` holds what differs per machine: git identity, SSH key source, extra casks.
 
 - `personal` — vaulted SSH key from `secrets/`, prompts for the vault password, installs the full app list.
-- `work` — nothing from `secrets/`, no vault prompt, generates a fresh ed25519 key and prints the public key to add to GitHub. Fill in `user_email` / `github_username` before the first run.
+- `work` — nothing from `secrets/`, no vault prompt, generates a fresh ed25519 key and prints the public key to add to GitHub. Fill in `user_email` before the first run, or pass `-e user_email=you@naga.com`.
 
 Run a profile directly with `ansible-playbook local.yml -e profile=work --ask-become-pass`.
 

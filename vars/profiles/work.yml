@@ -2,6 +2,5 @@
 # generated on the box. Never run this profile with --ask-vault-pass.
 user_email: "CHANGE_ME@naga.com"
 user_full_name: "Razvan Timis"
-github_username: CHANGE_ME
 
 profile_cask_packages: []
