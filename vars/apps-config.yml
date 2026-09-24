@@ -7,7 +7,6 @@ mise_tools:
 # Global npm CLIs, also via mise
 npm_packages:
   - pnpm
-  - typescript
 
 # Shared by every profile; per-profile extras live in vars/profiles/*.yml
 brew_cask_packages:

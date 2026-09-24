@@ -54,7 +54,6 @@ Run a profile directly with `ansible-playbook local.yml -e profile=work --ask-be
 
 ### npm global packages
 - [pnpm](https://pnpm.io/)
-- [typescript](https://www.typescriptlang.org/)
 
 ### VSCode Extensions
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
