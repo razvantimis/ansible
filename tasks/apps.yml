@@ -14,8 +14,7 @@
   homebrew_cask:
     name: "{{ item }}"
     state: present
-  loop: "{{ brew_cask_packages }}"
-  when: brew_cask_packages is defined
+  loop: "{{ brew_cask_packages + profile_cask_packages | default([]) }}"
   ignore_errors: true
 
 - name: Install VSCode extensions

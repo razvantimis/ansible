@@ -1,32 +1,37 @@
-- name: Check if source SSH key exists
-  stat:
-    path: "{{ source_key }}"
-  register: source_key_stat
-
 - name: Ensure .ssh directory exists
   file:
     dest: "{{ dest_key | dirname }}"
     mode: 0700
     state: directory
 
-- name: Install ssh key
+- name: Install vaulted ssh key
   copy:
     src: "{{ source_key }}"
     dest: "{{ dest_key }}"
     mode: 0600
-  when: source_key_stat.stat.exists
+  when: source_key is defined
 
-- name: Install ssh key public
+- name: Install vaulted ssh public key
   copy:
     src: "{{ source_key }}.pub"
     dest: "{{ dest_key }}.pub"
     mode: 0644
-  when: source_key_stat.stat.exists
+  when: source_key is defined
+
+- name: Generate a machine-local ssh key
+  command: ssh-keygen -t ed25519 -C "{{ user_email }}" -f "{{ dest_key }}" -N ""
+  args:
+    creates: "{{ dest_key }}"
+  when: source_key is not defined
+
+- name: Show public key to register with GitHub
+  debug:
+    msg: "{{ lookup('file', dest_key + '.pub') }}"
+  when: source_key is not defined
 
 - name: Set authorized key from file
   authorized_key:
     user: "{{ user_name }}"
     state: present
     key: "{{ lookup('file', dest_key + '.pub') }}"
-  when: source_key_stat.stat.exists
   ignore_errors: yes

@@ -90,10 +90,6 @@ source $ZSH/oh-my-zsh.sh
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -107,7 +103,7 @@ export PATH="$HOME/Library/Python/3.9/bin:${PATH}"
 
 # Setup rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+command -v rbenv >/dev/null && eval "$(rbenv init -)"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
@@ -130,7 +126,7 @@ export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
 
 # bun completions
-[ -s "/Users/razvan/.bun/_bun" ] && source "/Users/razvan/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Claude Code CLI
 export PATH="$HOME/.local/bin:$PATH"
@@ -145,10 +141,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 alias claude="caffeinate -i claude"
 
 # opencode
-export PATH=/Users/razvan/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
 
 # >>> grok installer >>>
 export PATH="$HOME/.grok/bin:$PATH"

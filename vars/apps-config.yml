@@ -1,18 +1,13 @@
-packages:
+npm_packages:
   - pnpm
   - typescript
 
+# Shared by every profile; per-profile extras live in vars/profiles/*.yml
 brew_cask_packages:
   - google-chrome
-  - microsoft-edge
-  - firefox
-  - google-drive
-  - slack
   - visual-studio-code
   - docker
-  - vlc
   - postman
-  - nikitabobko/tap/aerospace
 
 brew_packages:
   - go

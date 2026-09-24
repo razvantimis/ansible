@@ -4,7 +4,16 @@
 ## How to install
 
 1. Run `chmod +x bootstrap.sh`
-2. Run `./bootstrap.sh`
+2. Run `./bootstrap.sh` (personal machine) or `./bootstrap.sh work` (work machine)
+
+## Profiles
+
+`vars/profiles/<profile>.yml` holds what differs per machine: git identity, SSH key source, extra casks.
+
+- `personal` — vaulted SSH key from `secrets/`, prompts for the vault password, installs the full app list.
+- `work` — nothing from `secrets/`, no vault prompt, generates a fresh ed25519 key and prints the public key to add to GitHub. Fill in `user_email` / `github_username` before the first run.
+
+Run a profile directly with `ansible-playbook local.yml -e profile=work --ask-become-pass`.
 
 ## Software
 
@@ -20,14 +29,14 @@
 
 ### MacOS software
 - [Google Chrome](https://www.google.com/chrome/)
-- [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-- [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+- [Firefox](https://www.mozilla.org/en-US/firefox/new/) (personal only)
+- [Microsoft Edge](https://www.microsoft.com/en-us/edge) (personal only)
 - [Slack](https://slack.com/downloads/mac)
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [Postman](https://www.postman.com/downloads/)
-- [VLC](https://www.videolan.org/vlc/download-macosx.html)
+- [VLC](https://www.videolan.org/vlc/download-macosx.html) (personal only)
 - [VSCode](https://code.visualstudio.com/download)
-- [Google Drive](https://www.google.com/drive/download/)
+- [Google Drive](https://www.google.com/drive/download/) (personal only)
 
 ### Brew packages
 - [go](https://golang.org/)

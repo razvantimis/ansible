@@ -19,4 +19,4 @@
     npm install -g {{ item }}
   args:
     executable: /bin/bash
-  loop: "{{ packages }}"
+  loop: "{{ npm_packages }}"
