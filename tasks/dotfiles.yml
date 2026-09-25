@@ -12,3 +12,4 @@
   shell: ./setup.sh "{{ dotfiles_source }}"
   args:
     chdir: "{{ dotfiles_source }}"
+  changed_when: false
