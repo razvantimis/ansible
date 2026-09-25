@@ -21,6 +21,10 @@ if ! command -v ansible &>/dev/null; then
 	brew install ansible
 fi
 
+# The community.general bundled with older ansible treats "already installed"
+# Homebrew output as a failure, which aborts every re-run of the playbook.
+ansible-galaxy collection install community.general --upgrade
+
 # Only the personal profile reads from the vault; the work profile must never see the vault password.
 VAULT_ARGS=()
 if [[ "$PROFILE" == "personal" ]]; then
