@@ -36,6 +36,10 @@
 - name: Check AeroSpace is running and answering (hotkeys need this)
   command: aerospace list-workspaces --all
   changed_when: false
+  register: aerospace_cli
+  until: aerospace_cli is succeeded
+  retries: 5
+  delay: 2
 
 - name: Check .zshrc loads its Homebrew plugins and mise
   shell: source ~/.zshrc && command -v mise
