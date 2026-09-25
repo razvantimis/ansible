@@ -100,7 +100,7 @@ alt-e = 'layout accordion horizontal vertical'
 alt-shift-0 = 'balance-sizes'
 
 # App launchers
-alt-t = 'exec-and-forget open -a Alacritty'
+alt-t = 'exec-and-forget open -a Ghostty'
 alt-w = 'exec-and-forget open -a "Vivaldi"'
 alt-c = 'exec-and-forget open -a "Visual Studio Code"'
 
