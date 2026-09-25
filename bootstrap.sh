@@ -16,14 +16,13 @@ elif [[ -f /usr/local/bin/brew ]]; then
 	eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-if ! command -v ansible &>/dev/null; then
+# Always run Homebrew's ansible: a stray pip/CLT ansible on PATH ships an old
+# community.general that fails on already-installed Homebrew formulas.
+if ! brew list --versions ansible &>/dev/null; then
 	echo "Installing ansible..."
 	brew install ansible
 fi
-
-# The community.general bundled with older ansible treats "already installed"
-# Homebrew output as a failure, which aborts every re-run of the playbook.
-ansible-galaxy collection install community.general --upgrade
+ANSIBLE_PLAYBOOK="$(brew --prefix)/bin/ansible-playbook"
 
 # Only the personal profile reads from the vault; the work profile must never see the vault password.
 VAULT_ARGS=()
@@ -31,4 +30,4 @@ if [[ "$PROFILE" == "personal" ]]; then
 	VAULT_ARGS=(--ask-vault-pass)
 fi
 
-ansible-playbook local.yml -e "profile=$PROFILE" --ask-become-pass "${VAULT_ARGS[@]}"
+"$ANSIBLE_PLAYBOOK" local.yml -e "profile=$PROFILE" --ask-become-pass "${VAULT_ARGS[@]}"

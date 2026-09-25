@@ -6,6 +6,11 @@
     name: nikitabobko/tap
     state: present
 
+# Homebrew 7 ignores casks from third-party taps until they are trusted.
+- name: Trust the AeroSpace cask
+  command: brew trust --cask nikitabobko/tap/aerospace
+  changed_when: false
+
 - name: Install AeroSpace
   community.general.homebrew_cask:
     name: aerospace
