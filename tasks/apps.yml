@@ -24,12 +24,15 @@
   command: brew services start colima
   changed_when: false
 
+# adopt: take over apps that were installed by hand (or by IT) instead of failing
 - name: Install homebrew cask packages
   homebrew_cask:
     name: "{{ item }}"
     state: present
+    install_options: adopt
   loop: "{{ brew_cask_packages + profile_cask_packages | default([]) }}"
 
 - name: Install VSCode extensions
   shell: code --install-extension {{ item }}
   loop: "{{ vscode_extensions }}"
+  changed_when: false

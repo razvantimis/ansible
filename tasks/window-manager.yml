@@ -6,9 +6,24 @@
     name: nikitabobko/tap
     state: present
 
+# Homebrew 7 ignores casks from third-party taps until they are trusted.
+- name: Trust the AeroSpace cask
+  command: brew trust --cask nikitabobko/tap/aerospace
+  changed_when: false
+
 - name: Install AeroSpace
   community.general.homebrew_cask:
     name: aerospace
     state: present
   register: aerospace_installed
   until: aerospace_installed is succeeded
+
+# The cask only copies the app. start-at-login is registered by AeroSpace itself
+# on its first run, so a never-launched install comes back dead after a reboot.
+- name: Launch AeroSpace so it registers start-at-login
+  command: open -a AeroSpace
+  changed_when: false
+
+- name: Remind about Accessibility permission
+  debug:
+    msg: "Hotkeys need Accessibility: System Settings > Privacy & Security > Accessibility > enable AeroSpace (macOS prompts on first launch)."

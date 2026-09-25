@@ -65,3 +65,10 @@
             - macos
       tags:
         - macos
+    - include_tasks:
+        file: tasks/check.yml
+        apply:
+          tags:
+            - check
+      tags:
+        - check

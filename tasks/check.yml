@@ -1,0 +1,57 @@
+# Post-install sanity check: fails loudly when the terminal or window manager
+# setup is not actually wired up, instead of finding out after a reboot.
+
+# stow may fold a whole directory into one symlink, so resolve the real path
+# instead of testing the leaf file.
+- name: Check stowed dotfiles resolve into this repo (otherwise stow never ran or something overwrote them)
+  shell: |
+    real="$(realpath "$HOME/{{ item }}")" || { echo "~/{{ item }} missing"; exit 1; }
+    case "$real" in
+      "$(realpath "{{ dotfiles_source }}")"/*) ;;
+      *) echo "~/{{ item }} resolves to $real, not into {{ dotfiles_source }}; run --tags dotfiles"; exit 1 ;;
+    esac
+  loop:
+    - .zshrc
+    - .p10k.zsh
+    - .tmux.conf
+    - .alacritty.toml
+    - .config/aerospace/aerospace.toml
+  changed_when: false
+
+- name: Check required apps are installed
+  stat:
+    path: "/Applications/{{ item }}.app"
+  loop:
+    - AeroSpace
+    - Alacritty
+  register: app_bundles
+  failed_when: not app_bundles.stat.exists
+  loop_control:
+    label: "{{ item }}"
+
+- name: Check Meslo Nerd Font is installed
+  shell: ls ~/Library/Fonts /Library/Fonts | grep -qi MesloLGSNerdFont
+  changed_when: false
+
+- name: Check AeroSpace is running and answering (hotkeys need this)
+  command: aerospace list-workspaces --all
+  changed_when: false
+  register: aerospace_cli
+  until: aerospace_cli is succeeded
+  retries: 5
+  delay: 2
+
+- name: Check .zshrc loads its Homebrew plugins and mise
+  shell: source ~/.zshrc && command -v mise
+  args:
+    executable: /bin/zsh
+  changed_when: false
+  register: zsh_load
+  failed_when: zsh_load.rc != 0 or 'no such file' in zsh_load.stderr or 'command not found' in zsh_load.stderr
+
+- name: Manual steps ansible cannot verify
+  debug:
+    msg:
+      - "Accessibility: System Settings > Privacy & Security > Accessibility must list AeroSpace, or no hotkey works."
+      - "Login Items: System Settings > General > Login Items & Extensions should show AeroSpace under 'Open at Login'."
+      - "Terminal: the prompt/font/tmux setup is Alacritty's; Terminal.app is untouched."
