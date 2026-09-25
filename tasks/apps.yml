@@ -24,12 +24,15 @@
   command: brew services start colima
   changed_when: false
 
-# adopt: take over apps that were installed by hand (or by IT) instead of failing
+# adopt: take over apps that were installed by hand (or by IT) instead of failing.
+# Adopting a root-owned app makes brew sudo chmod it; there is no tty for sudo
+# under ansible, so hand it the become password.
 - name: Install homebrew cask packages
   homebrew_cask:
     name: "{{ item }}"
     state: present
     install_options: adopt
+    sudo_password: "{{ ansible_become_password | default(omit) }}"
   loop: "{{ brew_cask_packages + profile_cask_packages | default([]) }}"
 
 - name: Install VSCode extensions
