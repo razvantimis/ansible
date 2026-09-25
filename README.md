@@ -15,6 +15,10 @@
 
 Run a profile directly with `ansible-playbook local.yml -e profile=work --ask-become-pass`.
 
+## Check
+
+Something looks unchanged after a reboot? `ansible-playbook local.yml --tags check --ask-become-pass` verifies dotfile links, AeroSpace running, fonts and the zsh stack, and prints the manual steps (Accessibility, Login Items) it can't verify.
+
 ## Software
 
 - Terminal: [Alacritty](https://alacritty.org)

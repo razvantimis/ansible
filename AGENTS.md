@@ -21,7 +21,9 @@ ansible-playbook local.yml --tags "apps" --ask-become-pass --ask-vault-pass
 ansible-playbook local.yml --tags "ssh,git,terminal" --ask-become-pass --ask-vault-pass
 ```
 
-Available tags: `ssh`, `git`, `runtimes`, `terminal`, `macos`, `apps`, `window-manager`, `dotfiles`
+Available tags: `ssh`, `git`, `runtimes`, `terminal`, `macos`, `apps`, `window-manager`, `dotfiles`, `check`
+
+`check` runs last in a full run and can be run alone (`--tags check`) to verify dotfile links, AeroSpace and the terminal stack after a reboot.
 
 ## Architecture
 
