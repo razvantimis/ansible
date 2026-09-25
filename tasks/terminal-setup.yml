@@ -8,6 +8,16 @@
     name: ghostty
     state: present
 
+- name: Remove Alacritty (replaced by Ghostty; its cask is disabled upstream)
+  homebrew_cask:
+    name: alacritty
+    state: absent
+
+- name: Remove Alacritty config left behind by the old dotfiles
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.alacritty.toml"
+    state: absent
+
 - name: Install tmux
   homebrew:
     name: tmux
