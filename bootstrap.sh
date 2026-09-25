@@ -24,10 +24,19 @@ if ! brew list --versions ansible &>/dev/null; then
 fi
 ANSIBLE_PLAYBOOK="$(brew --prefix)/bin/ansible-playbook"
 
+# One sudo prompt for both ansible's become and Homebrew adopting root-owned apps
+# (the become prompt's value is not visible to tasks). Never on the command line.
+read -r -s -p "sudo password: " BOOTSTRAP_SUDO_PASSWORD
+echo
+export BOOTSTRAP_SUDO_PASSWORD
+BECOME_PASSWORD_FILE="$(mktemp)"
+trap 'rm -f "$BECOME_PASSWORD_FILE"' EXIT
+printf '%s' "$BOOTSTRAP_SUDO_PASSWORD" > "$BECOME_PASSWORD_FILE"
+
 # Only the personal profile reads from the vault; the work profile must never see the vault password.
 VAULT_ARGS=()
 if [[ "$PROFILE" == "personal" ]]; then
 	VAULT_ARGS=(--ask-vault-pass)
 fi
 
-"$ANSIBLE_PLAYBOOK" local.yml -e "profile=$PROFILE" --ask-become-pass "${VAULT_ARGS[@]}"
+"$ANSIBLE_PLAYBOOK" local.yml -e "profile=$PROFILE" --become-password-file "$BECOME_PASSWORD_FILE" "${VAULT_ARGS[@]}"
