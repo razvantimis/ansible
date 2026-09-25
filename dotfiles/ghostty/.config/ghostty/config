@@ -1,0 +1,42 @@
+# Ghostty - https://ghostty.org/docs/config
+# Reload with cmd+shift+, (no file watching)
+
+font-family = MesloLGS Nerd Font Mono
+font-size = 18
+
+# login zsh straight into tmux
+command = /bin/zsh -l -c "tmux attach || tmux"
+term = xterm-256color
+
+macos-titlebar-style = hidden
+background-opacity = 0.9
+window-padding-x = 8
+window-padding-y = 8
+
+# cmd shortcuts send the tmux prefix (ctrl+space = \x00) + key
+keybind = super+e=text:\x00"
+keybind = super+shift+e=text:\x00%
+keybind = super+shift+f=text:\x00[/
+keybind = super+j=text:\x00T
+keybind = super+k=text:\x00T
+keybind = super+l=text:\x00L
+keybind = super+t=text:\x00c
+keybind = super+shift+t=text:\x00P
+keybind = super+w=text:\x00x
+keybind = super+z=text:\x00z
+keybind = ctrl+tab=text:\x00n
+keybind = super+,=text:\x00,
+keybind = super+[=text:\x0f
+keybind = super+shift+[=text:\x00p
+keybind = super+]=text:\t
+keybind = super+shift+]=text:\x00n
+keybind = super+;=text:\x00:
+keybind = super+1=text:\x001
+keybind = super+2=text:\x002
+keybind = super+3=text:\x003
+keybind = super+4=text:\x004
+keybind = super+5=text:\x005
+keybind = super+6=text:\x006
+keybind = super+7=text:\x007
+keybind = super+8=text:\x008
+keybind = super+9=text:\x009

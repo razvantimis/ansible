@@ -21,7 +21,7 @@ Something looks unchanged after a reboot? `ansible-playbook local.yml --tags che
 
 ## Software
 
-- Terminal: [Alacritty](https://alacritty.org)
+- Terminal: [Ghostty](https://ghostty.org)
 - Font: [Meslo Nerd Font](https://github.com/ryanoasis/nerd-fonts)
 - Prompt: [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - Shell: [oh-my-zsh](https://ohmyz.sh/) with [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)

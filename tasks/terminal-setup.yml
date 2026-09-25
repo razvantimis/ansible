@@ -3,9 +3,9 @@
     name: font-meslo-lg-nerd-font
     state: present
 
-- name: Install alacritty
+- name: Install Ghostty
   homebrew_cask:
-    name: alacritty
+    name: ghostty
     state: present
 
 - name: Install tmux

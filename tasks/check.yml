@@ -14,7 +14,7 @@
     - .zshrc
     - .p10k.zsh
     - .tmux.conf
-    - .alacritty.toml
+    - .config/ghostty/config
     - .config/aerospace/aerospace.toml
   changed_when: false
 
@@ -23,7 +23,7 @@
     path: "/Applications/{{ item }}.app"
   loop:
     - AeroSpace
-    - Alacritty
+    - Ghostty
   register: app_bundles
   failed_when: not app_bundles.stat.exists
   loop_control:
@@ -54,4 +54,4 @@
     msg:
       - "Accessibility: System Settings > Privacy & Security > Accessibility must list AeroSpace, or no hotkey works."
       - "Login Items: System Settings > General > Login Items & Extensions should show AeroSpace under 'Open at Login'."
-      - "Terminal: the prompt/font/tmux setup is Alacritty's; Terminal.app is untouched."
+      - "Terminal: the prompt/font/tmux setup is Ghostty's; Terminal.app is untouched."
