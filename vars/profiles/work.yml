@@ -4,9 +4,9 @@
 user_email: "razvan@timis.dev"
 user_full_name: "Razvan Timis"
 
-# Repos cloned under work_repos_dir commit with the company email; everything
-# else falls back to user_email.
+# Repos whose remote lives under the company GitHub org commit with the
+# company email; everything else falls back to user_email.
 work_email: "razvan.timis@naga.com"
-work_repos_dir: "{{ lookup('env', 'HOME') }}/naga"
+work_github_org: "SwipeStoxGmbH"
 
 profile_cask_packages: []

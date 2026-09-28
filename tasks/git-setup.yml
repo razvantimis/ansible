@@ -22,12 +22,6 @@
     scope: global
     value: "true"
 
-- name: Ensure work repos directory exists
-  file:
-    path: "{{ work_repos_dir }}"
-    state: directory
-  when: work_email is defined
-
 - name: Write work git identity
   copy:
     dest: "{{ lookup('env', 'HOME') }}/.gitconfig-work"
@@ -37,9 +31,12 @@
       	email = {{ work_email }}
   when: work_email is defined
 
-- name: Use work identity for repos under work_repos_dir
+- name: Use work identity for repos cloned from the work GitHub org
   git_config:
-    name: 'includeIf.gitdir:{{ work_repos_dir }}/.path'
+    name: "includeIf.hasconfig:remote.*.url:{{ item }}.path"
     scope: global
     value: "{{ lookup('env', 'HOME') }}/.gitconfig-work"
+  loop:
+    - "git@github.com:{{ work_github_org }}/**"
+    - "https://github.com/{{ work_github_org }}/**"
   when: work_email is defined
