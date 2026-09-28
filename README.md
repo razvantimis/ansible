@@ -4,14 +4,14 @@
 ## How to install
 
 - Personal machine: `./bootstrap.sh`
-- Work machine: `./bootstrap.sh work`
+- Work machine: `./bootstrap.sh work -e work_email=you@company.com -e work_github_org=company-org`
 
 ## Profiles
 
 `vars/profiles/<profile>.yml` holds what differs per machine: git identity, SSH key source, extra casks.
 
 - `personal` — vaulted SSH key from `secrets/`, prompts for the vault password, installs the full app list.
-- `work` — nothing from `secrets/`, no vault prompt, generates a fresh ed25519 key and prints the public key to add to the personal GitHub account. Commits default to the personal email; repos whose remote is under the `work_github_org` GitHub org commit as `work_email` via a remote-URL-scoped include.
+- `work` — nothing from `secrets/`, no vault prompt, generates a fresh ed25519 key and prints the public key to add to the personal GitHub account. Commits default to the personal email. Company identity stays out of this public repo: pass `-e work_email=... -e work_github_org=...` (bootstrap forwards extra args) and repos whose remote is under that GitHub org commit as `work_email` via a remote-URL-scoped include.
 
 Run a profile directly with `ansible-playbook local.yml -e profile=work --ask-become-pass`. Prefer `bootstrap.sh` on a machine with IT-installed apps: it also hands your sudo password to Homebrew for adopting root-owned apps (`BOOTSTRAP_SUDO_PASSWORD`), which the become prompt alone can't do.
 

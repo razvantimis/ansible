@@ -29,7 +29,7 @@
     content: |
       [user]
       	email = {{ work_email }}
-  when: work_email is defined
+  when: work_email is defined and work_github_org is defined
 
 - name: Use work identity for repos cloned from the work GitHub org
   git_config:
@@ -39,4 +39,4 @@
   loop:
     - "git@github.com:{{ work_github_org }}/**"
     - "https://github.com/{{ work_github_org }}/**"
-  when: work_email is defined
+  when: work_email is defined and work_github_org is defined

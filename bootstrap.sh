@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-# Usage: ./bootstrap.sh [personal|work]   (default: personal)
+# Usage: ./bootstrap.sh [personal|work] [extra ansible-playbook args]   (default: personal)
 PROFILE="${1:-personal}"
+shift $(( $# > 0 ? 1 : 0 ))
 
 # Check for Homebrew and install it
 if ! command -v brew &>/dev/null; then
@@ -39,4 +40,4 @@ if [[ "$PROFILE" == "personal" ]]; then
 	VAULT_ARGS=(--ask-vault-pass)
 fi
 
-"$ANSIBLE_PLAYBOOK" local.yml -e "profile=$PROFILE" --become-password-file "$BECOME_PASSWORD_FILE" "${VAULT_ARGS[@]}"
+"$ANSIBLE_PLAYBOOK" local.yml -e "profile=$PROFILE" --become-password-file "$BECOME_PASSWORD_FILE" "${VAULT_ARGS[@]}" "$@"
