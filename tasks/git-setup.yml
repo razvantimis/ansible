@@ -21,3 +21,22 @@
     name: pull.rebase
     scope: global
     value: "true"
+
+- name: Write work git identity
+  copy:
+    dest: "{{ lookup('env', 'HOME') }}/.gitconfig-work"
+    mode: 0644
+    content: |
+      [user]
+      	email = {{ work_email }}
+  when: work_email is defined and work_github_org is defined
+
+- name: Use work identity for repos cloned from the work GitHub org
+  git_config:
+    name: "includeIf.hasconfig:remote.*.url:{{ item }}.path"
+    scope: global
+    value: "{{ lookup('env', 'HOME') }}/.gitconfig-work"
+  loop:
+    - "git@github.com:{{ work_github_org }}/**"
+    - "https://github.com/{{ work_github_org }}/**"
+  when: work_email is defined and work_github_org is defined

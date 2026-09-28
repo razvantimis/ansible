@@ -1,6 +1,11 @@
-# Work (Naga) machine: company identity, nothing from secrets/, fresh SSH key
+# Work machine: personal GitHub account, nothing from secrets/, fresh SSH key
 # generated on the box. Never run this profile with --ask-vault-pass.
-user_email: "razvan.timis@naga.com"
+user_email: "razvan@timis.dev"
 user_full_name: "Razvan Timis"
+
+# Company identity is not kept in this public repo. Pass both at run time and
+# repos whose remote lives under that GitHub org commit with that email:
+#   -e work_email=you@company.com -e work_github_org=company-org
+# Leave them unset and everything commits as user_email.
 
 profile_cask_packages: []
