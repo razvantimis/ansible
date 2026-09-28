@@ -21,3 +21,25 @@
     name: pull.rebase
     scope: global
     value: "true"
+
+- name: Ensure work repos directory exists
+  file:
+    path: "{{ work_repos_dir }}"
+    state: directory
+  when: work_email is defined
+
+- name: Write work git identity
+  copy:
+    dest: "{{ lookup('env', 'HOME') }}/.gitconfig-work"
+    mode: 0644
+    content: |
+      [user]
+      	email = {{ work_email }}
+  when: work_email is defined
+
+- name: Use work identity for repos under work_repos_dir
+  git_config:
+    name: 'includeIf.gitdir:{{ work_repos_dir }}/.path'
+    scope: global
+    value: "{{ lookup('env', 'HOME') }}/.gitconfig-work"
+  when: work_email is defined

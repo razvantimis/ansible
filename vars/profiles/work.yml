@@ -1,6 +1,12 @@
-# Work (Naga) machine: company identity, nothing from secrets/, fresh SSH key
-# generated on the box. Never run this profile with --ask-vault-pass.
-user_email: "razvan.timis@naga.com"
+# Work (Naga) machine: personal GitHub account (razvantimis), nothing from
+# secrets/, fresh SSH key generated on the box. Never run this profile with
+# --ask-vault-pass.
+user_email: "razvan@timis.dev"
 user_full_name: "Razvan Timis"
+
+# Repos cloned under work_repos_dir commit with the company email; everything
+# else falls back to user_email.
+work_email: "razvan.timis@naga.com"
+work_repos_dir: "{{ lookup('env', 'HOME') }}/naga"
 
 profile_cask_packages: []
