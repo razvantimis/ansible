@@ -6,6 +6,7 @@
 - name: Set macOS default settings
   community.general.osx_defaults:
     domain: "{{ item['domain'] }}"
+    host: "{{ item['host'] | default(omit) }}"
     key: "{{ item['key'] }}"
     type: "{{ item['type'] | default(omit) }}"
     value: "{{ item['value'] }}"
