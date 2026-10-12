@@ -49,6 +49,12 @@
   register: zsh_load
   failed_when: zsh_load.rc != 0 or 'no such file' in zsh_load.stderr or 'command not found' in zsh_load.stderr
 
+- name: Check the Bluetooth icon is set to show in the menu bar
+  command: defaults read com.apple.controlcenter "NSStatusItem VisibleCC Bluetooth"
+  changed_when: false
+  register: bluetooth_menu_bar
+  failed_when: bluetooth_menu_bar.stdout != '1'
+
 - name: Manual steps ansible cannot verify
   debug:
     msg:

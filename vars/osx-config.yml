@@ -208,11 +208,11 @@ osxConfig:
     name: Enable secondary click in external mouse
     type: string
     value: TwoButton
-  - domain: ~/Library/Preferences/ByHost/com.apple.controlcenter.plist
-    key: Bluetooth
-    name: "Control Center > Bluetooth: Show in Menu Bar"
-    type: int
-    value: 18
+  - domain: com.apple.controlcenter
+    key: NSStatusItem VisibleCC Bluetooth
+    name: "Menu Bar > Bluetooth: Show in Menu Bar"
+    type: bool
+    value: true
 
   # Fast key repeat
   - domain: NSGlobalDomain
