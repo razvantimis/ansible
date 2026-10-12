@@ -6,10 +6,17 @@
 - name: Set macOS default settings
   community.general.osx_defaults:
     domain: "{{ item['domain'] }}"
+    host: "{{ item['host'] | default(omit) }}"
     key: "{{ item['key'] }}"
     type: "{{ item['type'] | default(omit) }}"
     value: "{{ item['value'] }}"
   loop: "{{ osxConfig }}"
   ignore_errors: true
   when: osxConfig is defined
+  register: osx_defaults_result
+
+# Control Center reads menu bar items only at start; launchd respawns it.
+- name: Restart Control Center so menu bar changes show
+  command: killall ControlCenter
+  when: osx_defaults_result is changed
 
