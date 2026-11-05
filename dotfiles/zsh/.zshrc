@@ -97,6 +97,9 @@ _source_first /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlightin
 # Preferred editor for local and remote sessions
 if (( $+commands[code] )); then export EDITOR='code --wait'; else export EDITOR=vim; fi
 
+# ~/.local/bin: Claude Code, and mise itself on Linux (Homebrew provides it on macOS)
+export PATH="$HOME/.local/bin:$PATH"
+
 # mise: node, java, python and global npm CLIs
 eval "$(mise activate zsh)"
 if [[ $OSTYPE == darwin* ]]; then export PNPM_HOME="$HOME/Library/pnpm"; else export PNPM_HOME="$HOME/.local/share/pnpm"; fi
@@ -120,8 +123,6 @@ export PATH="$PNPM_HOME:$PATH"
 export GOPATH=$HOME/go
 
 
-# Claude Code CLI
-export PATH="$HOME/.local/bin:$PATH"
 
 (( $+commands[caffeinate] )) && alias claude="caffeinate -i claude"
 
