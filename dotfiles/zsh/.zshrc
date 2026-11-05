@@ -82,18 +82,27 @@ fpath=(~/.grok/completions/zsh $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Homebrew on macOS, apt or a git clone on Linux: source the first that exists.
+_source_first() {
+  local f
+  for f in "$@"; do [[ -r $f ]] && { source $f; return; }; done
+}
+
+_source_first /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ~/.local/share/powerlevel10k/powerlevel10k.zsh-theme
+_source_first /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # syntax-highlighting must be sourced after every other widget-binding plugin
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+_source_first /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # User configuration
 
 # Preferred editor for local and remote sessions
-export EDITOR='code --wait'
+if (( $+commands[code] )); then export EDITOR='code --wait'; else export EDITOR=vim; fi
+
+# ~/.local/bin: Claude Code, and mise itself on Linux (Homebrew provides it on macOS)
+export PATH="$HOME/.local/bin:$PATH"
 
 # mise: node, java, python and global npm CLIs
 eval "$(mise activate zsh)"
-export PNPM_HOME="$HOME/Library/pnpm"
+if [[ $OSTYPE == darwin* ]]; then export PNPM_HOME="$HOME/Library/pnpm"; else export PNPM_HOME="$HOME/.local/share/pnpm"; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
@@ -114,13 +123,14 @@ export PATH="$PNPM_HOME:$PATH"
 export GOPATH=$HOME/go
 
 
-# Claude Code CLI
-export PATH="$HOME/.local/bin:$PATH"
 
-alias claude="caffeinate -i claude"
+(( $+commands[caffeinate] )) && alias claude="caffeinate -i claude"
 
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
 
 # grok
 export PATH="$HOME/.grok/bin:$PATH"
+
+# Vite+ bin (https://viteplus.dev)
+[[ -r ~/.config/vite-plus/env ]] && . ~/.config/vite-plus/env
